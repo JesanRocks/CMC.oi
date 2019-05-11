@@ -1,0 +1,20 @@
+/*body sidebar*/
+body::-webkit-scrollbar{
+	width: 7px;
+}
+
+body::-webkit-scrollbar-thumb{
+	background: #FA3232;
+	border-radius: 3px;
+}
+
+/*Scrollbar sidebar*/
+.sidebar::-webkit-scrollbar{
+	background: #F77676;
+	width: 7px;
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+	background: #FA3232;
+	border-radius: 3px;
+}
