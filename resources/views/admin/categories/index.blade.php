@@ -24,18 +24,18 @@
 
 						<td width="10px">
 							<a href="{{ route('categories.show', $category->id) }}" 
-							class="btn btn-info"><i class="far fa-eye"></i> Ver </a>
+							class="btn btn-info"><i class="far fa-eye"></i> <span class="d-none d-md-block d-lg-none">Ver</span></a>
 						</td>
 
 						<td width="10px">
 							<a href="{{ route('categories.edit', $category->id) }}" 
-							class="btn btn-info"><i class="fas fa-edit"></i> Editar</a>
+							class="btn btn-info"><i class="fas fa-edit"></i> <span class="d-none d-md-block d-lg-none">Editar</span></a>
 						</td>
 
 						<td width="10px">
 							{!! Form::open(['route' => ['categories.destroy',$category->id ], 
 							'method'=> 'DELETE' ])  !!}
-								<button type="" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</button>
+								<button type="" class="btn btn-danger"><i class="fas fa-trash-alt"></i> <span class="d-none d-md-block d-lg-none">Eliminar</span></button>
 							{!! Form::close() !!}
 						</td>
 

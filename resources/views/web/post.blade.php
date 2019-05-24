@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
 	<div class="col-md-12">
-		<h1 class="display-4">{{ $post->name }}</h1>
+		<h1 class="display-4 text-center">{{ $post->name }}</h1>
 
 		<div class="card text-center m-2">
 			<div class="card-header h5">

@@ -16,3 +16,7 @@
 <div class="form-group">
 	{{Form::submit('Guardar', ['class' => 'btn btn-primary'])}}
 </div>
+
+{{-- {{$clave = $usuario->password}}
+
+	<input  class='form-control' type="password" name="password"  id="password" value="{{$usuario->password}}" placeholder=""> --}}

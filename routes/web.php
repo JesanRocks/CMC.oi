@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,11 +16,6 @@ Route::get('/sistema', function () {
     return view('sistema');
 })->name('sistema');
 
-/*Ruta en veremos... para mover el login de laravel
-Route::get('/registro', function () {
-    return view('auth.register');
-})->name('registro');
-*/
 Auth::routes();
 //Blog: Vistas para visitantes
 Route::get('/blog',				'Web\PageController@blog')->name('blog');
@@ -29,10 +23,43 @@ Route::get('/entrada/{slug}',	'Web\PageController@post')->name('post');
 Route::get('/categoria/{slug}', 'Web\PageController@category')->name('category');
 Route::get('/etiqueta/{slug}',	'Web\PageController@tag')->name('tag');
 
-//Administración: menú para usuarios logueados
-//Control de publicaciones del Blog 
+/*Routas para contenido estático*/
+//Enlace único con las tres info (mision, vision, objetivos)
+Route::get('/quienes-somos', function () {
+    return view('institucion');
+})->name('institucion');
+
+Route::get('/organizacion', function () {
+    return view('organizacion');
+})->name('organizacion');
+
+Route::get('/contacto', function () {
+    return view('contacto');
+})->name('contacto');
+
+//Enlace Multimedia
+// Route::get('/galeria', function () {
+//     return view('galeria');
+// })->name('galeria');
+
+// Route::get('/videos', function () {
+//     return view('videos');
+// })->name('videos');
+
+/*Administración: menú para usuarios logueados
+Control de publicaciones del Blog */
 Route::resource('tags',			'Admin\TagController');
 Route::resource('categories',	'Admin\CategoryController');
 Route::resource('posts',		'Admin\PostController');
 //Control de usuarios
 Route::resource('usuarios',		'UsuarioController');
+
+//Control de inventario Work In Progress
+Route::resource('articulos',		'Inventario\ArticuloController');
+// Route::resource('marcas',		'MarcaController');
+Route::resource('inventarios',		'Inventario\InventarioController');
+
+
+// Route::get('/reseña', function () {
+//     return view('reseña');
+// })->name('reseña');

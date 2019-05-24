@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Inventario;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Crypt;//Encriptar
-use Illuminate\Support\Facades\Hash;
-
 use App\Http\Controllers\Controller;
+
+use App\Articulo;
 use App\User;
 
-class UsuarioController extends Controller
+class ArticuloController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +17,8 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $usuarios = User::orderBy('id','DESC')->paginate();
-        return view('usuarios.index', compact('usuarios'));
+        $articulos= Articulo::orderBy('id','DESC')->paginate();
+        return view('articulos.index',compact('articulos'));
     }
 
     /**
@@ -29,7 +28,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-       return view('usuarios.create');
+        return view('articulos.create');
     }
 
     /**
@@ -40,16 +39,10 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-
-        $request->request->add([
-            'password' => Hash::make($request->input('password'))
-        ]);
-
-        $usuario= User::create($request->all());
-
+        $articulo= Articulo::create($request->all());
         
-        return redirect()->route('usuarios.edit', $usuario->id)
-            ->with('info','Usuario registrado con exito');
+        return redirect()->route('articulos.edit', $articulo->id)
+            ->with('info','Articulo registrado con exito');
     }
 
     /**
@@ -60,8 +53,8 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        $usuario = User::find($id);
-        return view('usuarios.show', compact('usuario'));
+        $articulo = Articulo::find($id);
+        return view('articulos.show',compact('articulo'));
     }
 
     /**
@@ -72,8 +65,8 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        $usuario = User::find($id);
-        return view('usuarios.edit', compact('usuario')); 
+        $articulo = Articulo::find($id);
+        return view('articulos.edit',compact('articulo'));
     }
 
     /**
@@ -85,15 +78,11 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $usuario = User::find($id);
-        $request->request->add([
-            'password' => Hash::make($request->input('password'))
-        ]);
-        
-        $usuario->fill($request->all())->save();
+        $articulo = Articulo::find($id);
+        $articulo->fill($request->all())->save();
 
-        return redirect()->route('usuarios.edit', $usuario->id)
-            ->with('info','Usuario actualizado con exito');
+        return redirect()->route('articulos.edit', $articulo->id)
+            ->with('info','Articulo actualizado con exito'); 
     }
 
     /**
@@ -104,10 +93,7 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        $usuario = User::find($id)->delete();
-
+        $tag = Articulo::find($id)->delete();
         return back()->with('info','Eliminado correctamente'); 
     }
 }
-//concejomunicipaldecedeno2019@gmail.com
-//riocaribe1993

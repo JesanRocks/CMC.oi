@@ -12,10 +12,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="image/fav.ico">
  </head>
  <body  style="background-color: #f4cd82;  overflow-x:hidden;">
-  <header>
-    <img class="img-fluid" src="{{ asset('image/cintillo.jpg') }}" alt="">
-  </header><!-- /header -->
-        
+ 
   <nav class="container-fluid navbar navbar-dark navbar-expand-lg col-md-12 bg-danger">
     <a class="navbar-brand btn btn-outline-light">
      <img class="img-fluid" src="{{ asset('image/logo_abmc325.png') }}" width="40" height="40">
@@ -36,16 +33,22 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          <i class="fas fa-university"></i> Institución
-        </a>               
+        </a>              
          <div class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Reseña historica</a>
+          <a class="dropdown-item" href="#">
+            <i class="fas fa-history"></i> Reseña historica
+          </a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">¿Quienes somos?</a>
-          <a class="dropdown-item" href="#">Misión</a>
-          <a class="dropdown-item" href="#">Visión</a>
-          <a class="dropdown-item" href="#">Objetivos</a>
+          <a class="dropdown-item" href="{{ route('institucion') }}">
+          <i class="fas fa-address-card"></i> ¿Quienes somos?</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Organización</a>
+          <a class="dropdown-item" href="{{ route('organizacion') }}">
+            <i class="fas fa-sitemap"></i> Organización
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{ route('contacto') }}">
+           <i class="fas fa-address-book"></i> Contacto
+          </a>
          </div>
       </li>
 
@@ -55,22 +58,22 @@
        </a>
                 
        <div class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#"><i class="fas fa-images"></i> Galeria</a>
+        <a class="dropdown-item" href="#"><i class="fas fa-images"></i> Galería</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="#"><i class="fas fa-video"></i> Vídeos</a>
        </div>
       </li>
-  
-      <li class="nav-item">
-        <a class="nav-link" href="#">
-         <i class="fas fa-address-book"></i> Contacto
-        </a>
-      </li>
-           
-      <li class="nav-item">
-        <a class="nav-link" href="#" disabled>
-         <i class="fas fa-globe-americas"></i> Tramites en linea
-        </a>
+
+      <li class="nav-item dropdown">
+       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-globe-americas"></i> Tramites en linea
+       </a>
+                
+       <div class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="#"><i class="fas fa-file"></i> Ordenanzas</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#"><i class="fas fa-file"></i> Derecho de palabra</a>
+       </div>
       </li>
    </ul><!-- /ul -->
 
@@ -89,7 +92,7 @@
   </nav><!-- /nav navbar --> 
   
   <section class="row m-auto">
-    <article class="col-xs-12 col-md-8 p-1">
+    <article class="col-xs-12 col-md-9 p-1">
 
           @if(session('info'))
           <div class="container">
@@ -122,9 +125,9 @@
      @yield('content')
     </article><!-- /article -->
     
-    <aside class="col-xs-12 col-md-4 border" style="background-color: #e3e4e5;">
+    <aside class="col-xs-12 col-md-3 border" style="background-color: #e3e4e5;">
      <h3 class="shadow p-3 mb-3 rounded mt-2 p-1 h6 text-white text-center" style="background-color: #b32821;">
-      ¡Articulos destacados!
+      ¡Enlaces!
      </h3>
 
       <div class="card mb-3">
@@ -149,7 +152,7 @@
   </section><!-- /section --> 
   <footer  class="footer mt-auto py-3 text-center" style="background-color: #DC143C;">
    <div class="container">
-    <span class="text-white"><i class="far fa-copyright"></i> 2019 - Cámara Municipal del Municipio Cedeño - Estado Monagas</span>
+    <span class="text-white"><i class="far fa-copyright"></i> 2019 - Cámara Municipal del Municipio Cedeño <br> Caicara - Estado Monagas <br> RIF - G-20009010-3</span>
    </div><!-- /container alcaldia-->
 
    <div class="container mt-3">
@@ -159,7 +162,6 @@
     <a href="" class="btn btn-outline-light"><i class="fab fa-instagram"></i></a>
    </div><!-- /container redes -->
   </footer><!-- /footer -->
- </body>
-
-     @yield('scripts')
+     @yield('scripts') 
+   </body>
 </html>

@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
 	<div class="col-md-12">
-		<h1 class="display-4">Listado de articulos</h1>
+		<h1 class="display-4 text-center">Listado de articulos</h1>
 		@foreach($posts as $post)
 		<div class="card text-center m-2">
 			<div class="card-header h5">

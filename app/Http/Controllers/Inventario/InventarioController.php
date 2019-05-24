@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Inventario;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Crypt;//Encriptar
-use Illuminate\Support\Facades\Hash;
-
 use App\Http\Controllers\Controller;
-use App\User;
 
-class UsuarioController extends Controller
+use App\Inventario;
+use App\Articulo;
+
+class InventarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +17,8 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $usuarios = User::orderBy('id','DESC')->paginate();
-        return view('usuarios.index', compact('usuarios'));
+        $inventarios = Inventario::orderBy('id','DESC')->paginate();
+        return view('inventarios.index',compact('inventarios'));
     }
 
     /**
@@ -29,7 +28,9 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-       return view('usuarios.create');
+        //Consulta en la BD, de todos lo articulos para añadirlos al select
+        $articulos = Articulo::orderBy('nombre','ASC')->pluck('nombre','id');
+        return view('inventarios.create',compact('articulos'));
     }
 
     /**
@@ -40,16 +41,10 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-
-        $request->request->add([
-            'password' => Hash::make($request->input('password'))
-        ]);
-
-        $usuario= User::create($request->all());
-
+        $inventario= Inventario::create($request->all());
         
-        return redirect()->route('usuarios.edit', $usuario->id)
-            ->with('info','Usuario registrado con exito');
+        return redirect()->route('inventarios.edit', $inventario->id)
+            ->with('info','Articulo añadido con exito al inventario');
     }
 
     /**
@@ -60,8 +55,8 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        $usuario = User::find($id);
-        return view('usuarios.show', compact('usuario'));
+        $inventario = Inventario::find($id);
+        return view('inventarios.show',compact('inventario'));
     }
 
     /**
@@ -72,8 +67,9 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        $usuario = User::find($id);
-        return view('usuarios.edit', compact('usuario')); 
+        $articulos = Articulo::orderBy('nombre','ASC')->pluck('nombre','id');
+        $inventario = Inventario::find($id);
+        return view('inventarios.edit',compact('inventario','articulos'));
     }
 
     /**
@@ -85,15 +81,11 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $usuario = User::find($id);
-        $request->request->add([
-            'password' => Hash::make($request->input('password'))
-        ]);
-        
-        $usuario->fill($request->all())->save();
+        $inventario = Inventario::find($id);
+        $inventario->fill($request->all())->save();
 
-        return redirect()->route('usuarios.edit', $usuario->id)
-            ->with('info','Usuario actualizado con exito');
+        return redirect()->route('inventarios.edit', $inventario->id)
+            ->with('info','Articulo de inventario actualizado con exito'); 
     }
 
     /**
@@ -104,10 +96,6 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        $usuario = User::find($id)->delete();
-
-        return back()->with('info','Eliminado correctamente'); 
+        //
     }
 }
-//concejomunicipaldecedeno2019@gmail.com
-//riocaribe1993

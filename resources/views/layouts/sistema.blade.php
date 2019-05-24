@@ -64,35 +64,20 @@ to get the desired effect
       </div>
 
       <!-- Sidebar Menu -->
-      <nav class="mt-2">
+      <nav class="mt-3" style="margin-bottom: 70px;">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-          
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="{{ route('usuarios.index') }}" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Usuarios
-                <i class="right fa fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('usuarios.index') }}">
-                  <i class="fas fa-user-plus"></i>
-                  <p>Listado</p>
-                </a>             
-              </li>
-              <!--li class="nav-item">
-                <a class="nav-link" href="{{ url('listado') }}">
-                  <i class="fas fa-list-ol"></i>
-                  <p>Listado</p>
-                </a>
-              </li-->
-            </ul>
           </li>
+
           <li class="nav-header">Módulos</li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -122,56 +107,57 @@ to get the desired effect
                 </a>             
               </li>
             </ul>
-          </li>
-          
-          
-          <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
-              <i class="nav-icon fas fa-clipboard-list"></i>
-              <p>
-                Control de inventario
-                <span class="badge badge-info right">2</span>
-              </p>
-            </a>
-          </li>
+          </li>          
 
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-file"></i>
+              <i class="nav-icon fas fa-clipboard-list"></i>
               <p>
-                Extras
+                Control de inventario
                 <i class="fa fa-angle-left right"></i>
               </p>
             </a>
+
             <ul class="nav nav-treeview">
+
+              <!--li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-truck-moving"></i>
+                  <p>Proveedor</p>
+                </a>
+              </li-->
+
               <li class="nav-item">
-                <a href="pages/examples/404.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Error 404</p>
+                <a href="{{ route('articulos.index') }}" class="nav-link">
+                  <i class="fa fa-box-open"></i>
+                  <p>Articulos</p>
                 </a>
               </li>
+
               <li class="nav-item">
-                <a href="pages/examples/500.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Error 500</p>
+                <a href="{{ route('inventarios.index') }}" class="nav-link">
+                  <i class="fas fa-arrow-alt-circle-right"></i>
+                  <p>Inventario</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="pages/examples/blank.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Blank Page</p>
+
+              <!--li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-arrow-alt-circle-right"></i>
+                  <p>Ingresos</p>
                 </a>
-              </li>
-              <li class="nav-item">
-                <a href="starter.html" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Starter Page</p>
+              </li-->
+
+              <!--li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="fa fa-arrow-alt-circle-left"></i>
+                  <p>Salidas</p>
                 </a>
-              </li>
+              </li-->
             </ul>
           </li>
 
-          <li class="nav-item">
+          <li class="nav-item has-treeview">
             <a class="nav-link" href="{{ route('logout') }}"
               onclick="event.preventDefault();
               document.getElementById('logout-form').submit();">
@@ -181,9 +167,7 @@ to get the desired effect
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
               @csrf
-            </form>
-              
- 
+            </form>              
           </li>
 
         </ul>
@@ -199,7 +183,6 @@ to get the desired effect
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
- 
             @if(session('info'))
             <div class="container">
                 <div class="row">
@@ -233,12 +216,13 @@ to get the desired effect
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-    @yield('content')
+    
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
         <div class="row">
-   
+    
+          @yield('content')
    
         </div>
         <!-- /.row -->
@@ -249,20 +233,11 @@ to get the desired effect
   </div>
   <!-- /.content-wrapper -->
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-
   <!-- Main Footer -->
-  <footer class="main-footer">
+  <footer class="main-footer text-center">
     <!-- To the right -->
-    <div class="float-right d-none d-sm-block-down">
-      Anything you want
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2018 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+
+    <strong><i class="far fa-copyright"></i> 2019 - Cámara Municipal del Municipio Cedeño <br> Caicara - Estado Monagas <br> RIF - G-20009010-3</span>.</strong>
   </footer>
 </div>
 <!-- ./wrapper -->
