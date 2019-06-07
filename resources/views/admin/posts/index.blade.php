@@ -5,11 +5,16 @@
 	<div class="col-md-12">
 		<div class="card text-center m-2">
 			<div class="card-header h5">
-				Listado de Entradas <a href="{{ route('posts.create') }}" class="btn btn-primary ml-5"><i class="fas fa-plus-square"></i> Crear </a>
+				Listado de Entradas 
+				<div class="d-flex justify-content-end">
+					<a href="{{ route('posts.create') }}" class="btn btn-primary ml-5">
+						<i class="fas fa-plus-square"></i> Crear 
+					</a>
+				</div>
 			</div>
-			<div class="card-body">
+			<div class="card-body p-0">
 			<table class="table table-hover">
-				<thead>
+				<thead class="bg-dark">
 					<tr>
 						<th>ID</th>
 						<th>Nombre</th>

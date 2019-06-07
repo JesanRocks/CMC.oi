@@ -14,9 +14,10 @@
 </div>
 
 <div class="form-group">
-	{{Form::submit('Guardar', ['class' => 'btn btn-primary'])}}
+	{{Form::label('cargo_id', 'Elija el rol del Usuario')}}
+	{{ Form::select('cargo_id', $cargos, null, ['class' => 'form-control']) }}
 </div>
 
-{{-- {{$clave = $usuario->password}}
-
-	<input  class='form-control' type="password" name="password"  id="password" value="{{$usuario->password}}" placeholder=""> --}}
+<div class="form-group">
+	{{Form::submit('Guardar', ['class' => 'btn btn-primary'])}}
+</div>

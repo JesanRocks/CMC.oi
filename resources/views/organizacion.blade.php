@@ -1,5 +1,5 @@
 @extends('layouts.blog')
-@section('title'," Inicio")
+@section('titulo'," Organización")
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

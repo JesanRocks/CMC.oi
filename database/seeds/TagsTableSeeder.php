@@ -11,6 +11,27 @@ class TagsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Tag::class,20)->create();
+        App\Tag::create([
+        	'name'	=>	'Caicara de Maturín',
+        	'slug'	=>	'caicara-de-maturin'
+        ]);
+
+        App\Tag::create([
+        	'name'	=>	'Viento fresco',
+        	'slug'	=>	'viento-fresco'
+        ]);
+
+        App\Tag::create([
+        	'name'	=>	'Areo',
+        	'slug'	=>	'areo'
+        ]);
+
+        App\Tag::create([
+        	'name'	=>	'San Felix',
+        	'slug'	=>	'san-felix'
+        ]);
+
+
+        factory(App\Tag::class,16)->create();
     }
 }

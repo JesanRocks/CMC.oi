@@ -3,12 +3,12 @@
  <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
    <title>Cámara Municipal del Municipio Cedeño - @yield('titulo')</title>
     <!-- Estilos -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <!-- Scripts -->
     <script src="{{  asset('js/app.js') }}"></script>
- 
     <link rel="shortcut icon" type="image/x-icon" href="image/fav.ico">
  </head>
  <body  style="background-color: #f4cd82;  overflow-x:hidden;">
@@ -58,7 +58,9 @@
        </a>
                 
        <div class="dropdown-menu bg-light" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#"><i class="fas fa-images"></i> Galería</a>
+        <a class="dropdown-item" href="{{ route('galeria') }}">
+          <i class="fas fa-images"></i> Galería
+        </a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="#"><i class="fas fa-video"></i> Vídeos</a>
        </div>
@@ -76,18 +78,15 @@
        </div>
       </li>
    </ul><!-- /ul -->
-
  @guest
      <form class="form-inline my-2 my-lg-0">
-      <a class="btn btn-outline-light" href="{{ route('login') }}">Iniciar sesión</a>
+      <a class="btn btn-outline-secondary" href="{{ route('login') }}">Iniciar sesión</a>
      </form>
   @else
     <form class="form-inline my-2 my-lg-0">
-      <a class="btn btn-outline-light" href="{{ route('sistema') }}">Sistema</a>
+      <a class="btn btn-outline-secondary" href="{{ route('sistema') }}">Sistema</a>
     </form>
   @endguest
-
-
     </div><!-- / navbar collapse --> 
   </nav><!-- /nav navbar --> 
   

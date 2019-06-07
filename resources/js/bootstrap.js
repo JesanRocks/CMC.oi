@@ -12,6 +12,9 @@ try {
     window.$ = window.jQuery = require('jquery');
     require('bootstrap');
     require('admin-lte');
+
+ //    var $  = require( 'jquery' );
+	// var dt = require( 'datatables.net' )();
 } catch (e) {}
 
 /**

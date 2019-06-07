@@ -1,5 +1,5 @@
 @extends('layouts.sistema')
-@section('title'," Articulos" )
+@section('title'," Inventario" )
 @section('content') 
 <div class="container">
 	<div class="col-md-12">
@@ -8,14 +8,14 @@
 			<div class="card-header h4">
 				Inventario 
 				<div class="d-flex justify-content-end">
-					<a href="{{ route('inventarios.create') }}" class="btn btn-primary ml-5 ">
-					<i class="fas fa-plus-square"></i> Crear 
-				</a>
+					<a href="{{ route('inventarios.create') }}" class="btn btn-primary ml-5">
+						<i class="fas fa-plus-square"></i> Crear 
+					</a>
 				</div>
 			</div>
-			<div class="card-body">
+			<div class="card-body p-0">
 			<table class="table table-hover">
-				<thead>
+				<thead class="bg-dark">
 					<tr>
 						<th>ID</th>
 						<th>Nombre</th>
@@ -40,7 +40,7 @@
 {{-- Se define la variable, se llama al metodo (La relacion que se definió en el modelo) con el nombre del campo o atributo, de la tabla relacionada. --}}
 						<td>{{$inventario->articulo->nombre}}</td>
 						<td>{{$inventario->codigo}}</td>
-						<td>{{$inventario->grupo}}</td>
+						<td>{{$inventario->grupo->nombre}}</td>
 						<td>{{$inventario->independiente}}</td>
 						{{-- <td>{{$inventario->observacion}}</td> --}}
 

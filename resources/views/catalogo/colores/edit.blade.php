@@ -1,16 +1,16 @@
 @extends('layouts.sistema')
-@section('title'," Editar articulo" )
+@section('title'," Editar color" )
 @section('content') 
 <div class="container">
 	<div class="col-md-12">
 		<div class="card text-center m-2">
 			<div class="card-header h5">
-				Editar articulo
+				Editar color
 			</div>
 			<div class="card-body">
-			{!! Form::model($articulo, ['route' => ['articulos.update', $articulo->id], 
+			{!! Form::model($color, ['route' => ['colores.update', $color->id], 
 			'method'=> 'PUT'])  !!}
-				@include('articulos.formularios.form')
+				@include('catalogo/colores.formularios.form')
 			{!! Form::close() !!}
 			</div>
 

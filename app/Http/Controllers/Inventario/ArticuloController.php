@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Inventario;
 
 use Illuminate\Http\Request;
+
+use App\Http\Requests\ArticuloStoreRequest;
+use App\Http\Requests\ArticuloUpdateRequest;
+
 use App\Http\Controllers\Controller;
 
 use App\Articulo;
-use App\User;
 
 class ArticuloController extends Controller
 {
@@ -18,7 +21,7 @@ class ArticuloController extends Controller
     public function index()
     {
         $articulos= Articulo::orderBy('id','DESC')->paginate();
-        return view('articulos.index',compact('articulos'));
+        return view('catalago/articulos.index',compact('articulos'));
     }
 
     /**
@@ -28,7 +31,8 @@ class ArticuloController extends Controller
      */
     public function create()
     {
-        return view('articulos.create');
+        $subgrupos = Subgrupo::orderBy('codigo','ASC')->pluck('codigo','id');
+        return view('catalago/articulos.create',compact('subgrupos'));
     }
 
     /**
@@ -37,7 +41,7 @@ class ArticuloController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ArticuloStoreRequest $request)
     {
         $articulo= Articulo::create($request->all());
         
@@ -54,7 +58,7 @@ class ArticuloController extends Controller
     public function show($id)
     {
         $articulo = Articulo::find($id);
-        return view('articulos.show',compact('articulo'));
+        return view('catalago/articulos.show',compact('articulo'));
     }
 
     /**
@@ -66,7 +70,8 @@ class ArticuloController extends Controller
     public function edit($id)
     {
         $articulo = Articulo::find($id);
-        return view('articulos.edit',compact('articulo'));
+        $subgrupos = Subgrupo::orderBy('codigo','ASC')->pluck('codigo','id');
+        return view('catalago/articulos.edit',compact('articulo','subgrupos'));
     }
 
     /**
@@ -76,7 +81,7 @@ class ArticuloController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ArticuloUpdateRequest $request, $id)
     {
         $articulo = Articulo::find($id);
         $articulo->fill($request->all())->save();
@@ -93,7 +98,7 @@ class ArticuloController extends Controller
      */
     public function destroy($id)
     {
-        $tag = Articulo::find($id)->delete();
+        $articulo = Articulo::find($id)->delete();
         return back()->with('info','Eliminado correctamente'); 
     }
 }

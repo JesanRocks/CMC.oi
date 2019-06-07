@@ -1,5 +1,6 @@
 @extends('layouts.blog')
 @section('content')
+@section('titulo'," Inicio")
 <div class="container">
 	<div class="col-md-12">
 		<h1 class="display-4 text-center">Listado de articulos</h1>

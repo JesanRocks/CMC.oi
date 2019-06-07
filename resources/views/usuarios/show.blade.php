@@ -11,6 +11,7 @@
 				<!--p><strong>Foto de perfil: </strong><br> {{$usuario->name }}</p-->
 				<p><strong>Nombre: </strong> {{$usuario->name }}</p>
 				<p><strong>Correo: </strong> {{$usuario->email }}</p>
+				<p><strong>Cargo: </strong>  {{$usuario->cargo->dsc }}</p>
 				<p><strong>Fecha de registro: </strong> {{$usuario->created_at }}</p>
 			</div>
 

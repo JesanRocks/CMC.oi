@@ -1,8 +1,8 @@
 {{ Form::hidden('user_id', auth()->user()->id) }}
 
 <div class="form-group">
-	{{Form::label('nombre', 'Nombre del articulo')}}
-	{{Form::text('nombre', null, ['class' => 'form-control', 'id'=> 'nombre']) }}
+	{{Form::label('codigo', 'Codigo del articulo')}}
+	{{Form::text('codigo', null, ['class' => 'form-control', 'id'=> 'codigo']) }}
 </div>
 
 <div class="form-group">

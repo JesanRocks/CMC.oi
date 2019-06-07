@@ -7,21 +7,12 @@
 
   <title> CMC | @yield('title')</title>
   <!-- Scripts -->
-  <script src="{{ asset('js/app.js') }}" defer></script>
+  <script src="{{ asset('js/app.js') }}"></script>
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link href="{{ asset('css/scrollbar.css') }}" rel="stylesheet">
 </head>
-<!--
-BODY TAG OPTIONS:
-=================
-Apply one or more of the following classes to to the body tag
-to get the desired effect
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | sidebar-collapse                        |
-|               | sidebar-mini                            |
-|---------------------------------------------------------|
--->
+
 <body class="hold-transition sidebar-mini sidebar-collapse">
 <div class="wrapper">
   <!-- Navbar -->
@@ -87,7 +78,7 @@ to get the desired effect
                 <i class="right fa fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            <ul class="ml-3 nav nav-treeview">
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('tags.index') }}">
                   <i class="fas fa-tags"></i>
@@ -110,7 +101,7 @@ to get the desired effect
           </li>          
 
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon fas fa-clipboard-list"></i>
               <p>
                 Control de inventario
@@ -118,20 +109,62 @@ to get the desired effect
               </p>
             </a>
 
-            <ul class="nav nav-treeview">
-
+            <ul class="ml-3 nav nav-treeview">
               <!--li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="fas fa-truck-moving"></i>
                   <p>Proveedor</p>
                 </a>
               </li-->
-
               <li class="nav-item">
-                <a href="{{ route('articulos.index') }}" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="fa fa-box-open"></i>
-                  <p>Articulos</p>
+                  <p>Catalogo de bienes
+                  <i class="fa fa-angle-left right"></i>
+                  </p>
                 </a>
+                <ul class="ml-3 nav nav-treeview">
+                  
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('grupos.index') }}">
+                      <i class="fas fa-folder-open"></i>
+                      <p>Categorias</p>
+                    </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('subgrupos.index') }}">
+                      <i class="fas fa-folder-open"></i>
+                      <p>Subcategorias</p>
+                    </a>
+                  </li>
+                  
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('articulos.index') }}">
+                      <i class="fas fa-tags"></i>
+                      <p>Articulos especificos</p>
+                    </a>             
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('marcas.index') }}">
+                      <i class="fas fa-newspaper"></i>
+                      <p>Marcas</p>
+                    </a>             
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('colores.index') }}">
+                      <i class="fas fa-newspaper"></i>
+                      <p>Colores</p>
+                    </a>             
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('departamentos.index') }}">
+                      <i class="fas fa-newspaper"></i>
+                      <p>Departamentos</p>
+                    </a>             
+                  </li>
+                </ul>
               </li>
 
               <li class="nav-item">
@@ -140,7 +173,6 @@ to get the desired effect
                   <p>Inventario</p>
                 </a>
               </li>
-
               <!--li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="fas fa-arrow-alt-circle-right"></i>

@@ -8,7 +8,7 @@
 				Descripción del articulo
 			</div>
 			<div class="card-body">
-				<p><strong>Nombre: </strong> {{$articulo->nombre }}</p>
+				<p><strong>Codigo: </strong> {{$articulo->codigo }}</p>
 				<p><strong>Descripción: </strong> {{$articulo->dsc }}</p>
 				{{-- Buscar incluir nombre del responsable --}}
 				<p><strong>Añadido por: </strong> {{ $articulo->user_id }}</p>

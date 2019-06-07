@@ -15,13 +15,13 @@ class CreateArticulosTable extends Migration
     {
         Schema::create('articulos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre',50)->unique();
+            $table->string('codigo',50)->unique();
             $table->mediumText('dsc');
-            $table->integer('user_id')->unsigned();
+            $table->integer('subgrupo_id')->unsigned();
             $table->timestamps();
 
             //Relaciones
-            $table->foreign('user_id')->references('id')->on('users')
+            $table->foreign('subgrupo_id')->references('id')->on('subgrupos')
             ->onDelete('cascade')
             ->onUpdate('cascade');
         });

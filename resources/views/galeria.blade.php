@@ -1,8 +1,9 @@
 @extends('layouts.blog')
-@section('title'," Inicio")
+@section('titulo'," Galeria")
 @section('content')
 <div class="container">
     <h1 class="text-center display-4">Galería</h1>
+
     <div class="row mt-5">
         <div class="col-3 ">
           <div class="card">

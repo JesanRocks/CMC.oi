@@ -3,10 +3,19 @@
 namespace App\Http\Controllers\Inventario;
 
 use Illuminate\Http\Request;
+
+use App\Http\Requests\InventarioStoreRequest;
+use App\Http\Requests\InventarioUpdateRequest;
+
 use App\Http\Controllers\Controller;
 
 use App\Inventario;
 use App\Articulo;
+use App\Grupo;
+use App\Marca;
+use App\Color;
+use App\Departamento;
+use App\User;
 
 class InventarioController extends Controller
 {
@@ -29,8 +38,18 @@ class InventarioController extends Controller
     public function create()
     {
         //Consulta en la BD, de todos lo articulos para añadirlos al select
-        $articulos = Articulo::orderBy('nombre','ASC')->pluck('nombre','id');
-        return view('inventarios.create',compact('articulos'));
+        $articulos      = Articulo::orderBy('codigo','ASC')->pluck('dsc','id');
+        $grupos         = Grupo::orderBy('codigo','ASC')->pluck('codigo','id');
+        $marcas         = Marca::orderBy('nombre','ASC')->pluck('nombre','id');
+        $colores        = Color::orderBy('nombre','ASC')->pluck('nombre','id');
+        $departamentos  = Departamento::orderBy('nombre','ASC')->pluck('nombre','id');
+        return view('inventarios.create',compact(
+            'articulos',
+            'grupos',
+            'marcas',
+            'colores',
+            'departamentos'
+        ));
     }
 
     /**
@@ -39,7 +58,7 @@ class InventarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(InventarioStoreRequest $request)
     {
         $inventario= Inventario::create($request->all());
         
@@ -67,9 +86,20 @@ class InventarioController extends Controller
      */
     public function edit($id)
     {
-        $articulos = Articulo::orderBy('nombre','ASC')->pluck('nombre','id');
-        $inventario = Inventario::find($id);
-        return view('inventarios.edit',compact('inventario','articulos'));
+        $articulos      = Articulo::orderBy('codigo','ASC')->pluck('dsc','id');
+        $grupos         = Grupo::orderBy('codigo','ASC')->pluck('codigo','id');
+        $marcas         = Marca::orderBy('nombre','ASC')->pluck('nombre','id');
+        $colores        = Color::orderBy('nombre','ASC')->pluck('nombre','id');
+        $departamentos  = Departamento::orderBy('nombre','ASC')->pluck('nombre','id');
+        $inventario     = Inventario::find($id);
+        return view('inventarios.edit',compact(
+            'inventario',
+            'articulos',
+            'grupos',
+            'marcas',
+            'colores',
+            'departamentos'
+        ));
     }
 
     /**
@@ -79,7 +109,7 @@ class InventarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(InventarioUpdateRequest $request, $id)
     {
         $inventario = Inventario::find($id);
         $inventario->fill($request->all())->save();
