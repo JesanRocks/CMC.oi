@@ -11,15 +11,15 @@
 
     <div class="carousel-inner">        
         <div class="carousel-item active bg-secondary">
-            <img style="height: 250px;" src="{{ asset('image/concejales.jpg') }}" class="d-block w-100" alt="...">
-           	<div class="carousel-caption d-none d-md-block ">
-            	<h5 class="text-danger display-4">Somos un equipo</h5>
+            <img style="height: 250px;" src="{{ asset('image/slider1.png') }}" class="d-block w-100" alt="...">
+           	<div class="carousel-caption d-none d-md-block">
+            	<h5>Camará Municipal</h5>
 	        </div>
 	    </div>
 
         <div class="carousel-item bg-warning">
             <img style="height: 250px;" src="{{ asset('image/slider1.png') }}" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block text-dark">
+            <div class="carousel-caption d-none d-md-block">
                 <h5>Trabajamos por ti</h5>
         	</div>
         </div>
@@ -35,34 +35,30 @@
 
 <div class="container">
 	<div class="col-md-12 mt-3">
-		<div class="shadow-lg p-3 mb-4 bg-danger rounded">
-			<h1 class="text-left">Publicaciones</h1>
-		</div>
-
-		<div class="card-columns">
+		<h1 class="display-5 text-justify">Listado de articulos</h1>
 		@foreach($posts as $post)
-
-			<div class="card">
-			    @if($post->file)
+		<div class="card text-center m-2">
+			<div class="card-header h5">
+				{{ $post->name }}
+			</div>
+			<div class="card-body">
+				@if($post->file)
 					<img src="{{ $post->file }}" class="card-img-top img-fluid">
 				@endif
-			    <div class="card-body">
-			      <h5 class="card-title">
-			      	<a href="{{ route('post',$post->slug) }}">
-			      		{{ $post->name }}
-			      	</a>
-			      </h5>
-			      <p class="card-text">{{ $post->excerpt}}</p>
-			      <p class="card-text">
-			      	<small class="text-muted">Publicado el: {{ $post->created_at }}</small>
-			      </p>
-			    </div>
+				
+				<p class="card-text text-justify"> 
+					{{ $post->excerpt}}
+				</p>
+
+				<a href="{{ route('post',$post->slug) }}" class="btn btn-primary">Leer más...</a>
 			</div>
-		@endforeach
+
+			<div class="card-footer text-muted">
+		    	<strong>Publicado el: <small>{{ $post->created_at }}</small></strong>
+			</div>
+			
 		</div>
-	</div>
-		
-	<div class="col-12">
+		@endforeach
 		{{ $posts->render() }}
 	</div>
 </div>

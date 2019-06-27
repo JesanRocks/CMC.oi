@@ -12,192 +12,192 @@ class ColoresTableSeeder extends Seeder
     public function run()
     {
         App\Color::create([
-        	'nombre'	=>'No posee color',
-        	'dsc'		=>'Este articulo no tiene el color definido'
+            'nombre'    =>' No posee color',
+            'dsc'       =>'Este articulo no tiene el color definido'
         ]);
 
         App\Color::create([
-            'nombre'    =>  'NEGRO',
+            'nombre'    =>  'Negro',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'AZUL',
+            'nombre'    =>  'Azul',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'PALO ROSA',
+            'nombre'    =>  'Palo Rosa',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'NARANJA',
+            'nombre'    =>  'Naranja',
             'dsc'       =>  ''
         ]);
                 
         App\Color::create([
-            'nombre'    =>  'VERDE',
+            'nombre'    =>  'Verde',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'BEIGE',
+            'nombre'    =>  'Beige',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'CROMÁTICO',
+            'nombre'    =>  'Cromático',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'VINOTINTO',
+            'nombre'    =>  'Vinotinto',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'GRIS / NEGRO',
+            'nombre'    =>  'Gris / Negro',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  ' PLATEADO',
+            'nombre'    =>  'Plateado',
             'dsc'       =>  ''
         ]);
                 
         App\Color::create([
-            'nombre'    =>  'BEIGE AUSTRALIA',
+            'nombre'    =>  'Beige Australia',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'PLATEADO FERROSO ',
+            'nombre'    =>  'Plateado Ferroso ',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'PERLA',
+            'nombre'    =>  'Perla',
             'dsc'       =>  ''
         ]);
                 
         App\Color::create([
-            'nombre'    =>  'BEIGE OLIMPICO',
+            'nombre'    =>  'Beige Olimpico',
             'dsc'       =>  ''
         ]);
         
         App\Color::create([
-            'nombre'    =>  'ARENA METALIZADO',
+            'nombre'    =>  'Arena Metalizado',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'PLATA',
+            'nombre'    =>  'Plata',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'ROJO',
+            'nombre'    =>  'Rojo',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'AMARILLO ',
+            'nombre'    =>  'Amarillo ',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'BEIGE DUNA',
+            'nombre'    =>  'Beige Duna',
             'dsc'       =>  ''
         ]);
                 
         App\Color::create([
-            'nombre'    =>  'MARRÓN / NEGRO',
+            'nombre'    =>  'Marrón / Negro',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'AZUL / BEIGE ',
+            'nombre'    =>  'Azul / Beige ',
             'dsc'       =>  ''
         ]);
                 
         App\Color::create([
-            'nombre'    =>  'MARRÓN / BEIGE',
+            'nombre'    =>  'Marrón / Beige',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'VERDE ESMERALDA',
+            'nombre'    =>  'Verde Esmeralda',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'PLATA CLARO',
+            'nombre'    =>  'Plata Claro',
             'dsc'       =>  ''
         ]);
                 
         App\Color::create([
-            'nombre'    =>  'PLATEADO BRILLANTE',
+            'nombre'    =>  'Plateado Brillante',
             'dsc'       =>  ''
         ]);                                
 
         App\Color::create([
-            'nombre'    =>  'MARRÓN PARDILLO BICAPA',
+            'nombre'    =>  'Marrón Pardillo Bicapa',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'GRIS PALMERA',
+            'nombre'    =>  'Gris Palmera',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  ' DORADO ',
+            'nombre'    =>  'Dorado ',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'MADERA NATURAL',
+            'nombre'    =>  'Madera Natural',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'NEGRO/AMARILLO MOSTAZA',
+            'nombre'    =>  'Negro / Amarillo Mostaza',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'MARRON ',
+            'nombre'    =>  'Marron ',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'BLANCO',
+            'nombre'    =>  'Blanco',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'GRIS',
+            'nombre'    =>  'Gris',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'AZUL / GRIS ',
+            'nombre'    =>  'Azul / Gris ',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'AZUL / NEGRO',
+            'nombre'    =>  'Azul / Negro',
             'dsc'       =>  ''
         ]);
 
         App\Color::create([
-            'nombre'    =>  'ACERO',
+            'nombre'    =>  'Acero',
             'dsc'       =>  ''
         ]);
                 
         App\Color::create([
-            'nombre'    =>  'OTRO COLOR',
+            'nombre'    =>  'Otro Color',
             'dsc'       =>  ''
         ]);
 

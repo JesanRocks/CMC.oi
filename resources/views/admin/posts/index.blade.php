@@ -18,6 +18,7 @@
 					<tr>
 						<th>ID</th>
 						<th>Nombre</th>
+						<th>Estado</th>
 						<th colspan="3">Opciones</th>
 					</tr>
 				</thead>
@@ -25,8 +26,14 @@
 					@foreach($posts as $post)
 					<tr>
 						<td>{{$post->id}}</td>
-						<td>{{$post->name}}</td>
-
+						<td class="text-justify">{{$post->name}}</td>
+						<td>
+							@if($post->status === 'PUBLISHED')
+							<a class="p-2 badge badge-success text-white">Publicado</a>
+							@else
+							<a class="p-2 badge badge-danger text-white">Borrador</a>
+							@endif
+						</td>
 						<td width="10px">
 							<a href="{{ route('posts.show', $post->id) }}" 
 							class="btn btn-info"><i class="far fa-eye"></i> <span class="d-none d-md-block d-lg-none">Ver</span></a>

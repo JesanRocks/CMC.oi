@@ -7,12 +7,53 @@
 		<div class="card text-center m-2">
 			<div class="card-header h4">
 				Inventario 
-				<div class="d-flex justify-content-end">
-					<a href="{{ route('inventarios.create') }}" class="btn btn-primary ml-5">
+				<div class="d-flex bd-highlight">
+				  
+				  <div class="m-0 p-2 bd-highlight">
+					<div class="btn-group">
+						<a href="{{ route('descarga.pdf') }}" class="btn btn-danger">
+							<i class="fas fa-file-pdf"></i> PDF 
+						</a>
+
+						<a href="#" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						</a>
+						<div class="dropdown-menu">
+						    <a class="dropdown-item" href="{{ route('pdf') }}">Ver</a>
+						    <a class="dropdown-item" href="#">Another action</a>
+						    <a class="dropdown-item" href="#">Something else here</a>
+						    <div class="dropdown-divider"></div>
+						    <a class="dropdown-item" href="#">Separated link</a>
+						</div>
+					</div>
+
+				  </div>
+
+				  <div class="m-0 p-2 bd-highlight">
+					<div class="btn-group">
+						<a href="{{ route('inventarios.create') }}" class="btn btn-success">
+							<i class="fas fa-file-excel"></i> Excel 
+						</a>
+
+						<a href="{{ route('inventarios.create') }}" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						</a>
+						<div class="dropdown-menu dropdown-menu-right">
+						    <a class="dropdown-item" href="#">Action</a>
+						    <a class="dropdown-item" href="#">Another action</a>
+						    <a class="dropdown-item" href="#">Something else here</a>
+						    <div class="dropdown-divider"></div>
+						    <a class="dropdown-item" href="#">Separated link</a>
+						</div>
+					</div>
+
+				  </div>
+
+				  <div class="ml-auto p-2 bd-highlight">					
+				  	<a href="{{ route('inventarios.create') }}" class="btn btn-primary ml-5">
 						<i class="fas fa-plus-square"></i> Crear 
-					</a>
+					</a></div>
 				</div>
 			</div>
+
 			<div class="card-body p-0">
 			<table class="table table-hover">
 				<thead class="bg-dark">
@@ -23,13 +64,6 @@
 						<th>Cod</th>
 						<th>Grupo</th>
 						<th>N° I.</th>
-{{-- 						<th>Serial</th>
-						<th>Modelo</th>
-						<th>Marca</th>
-						<th>Color</th>
-						<th>Incorp.</th>
-						<th>Desincorp.</th> 
-						<th>Observación</th>--}}
 						<th colspan="3">Opciones</th>
 					</tr>
 				</thead>
@@ -38,9 +72,9 @@
 					<tr>
 						<td>{{$inventario->id}}</td>
 {{-- Se define la variable, se llama al metodo (La relacion que se definió en el modelo) con el nombre del campo o atributo, de la tabla relacionada. --}}
-						<td>{{$inventario->articulo->nombre}}</td>
+						<td class="text-justify">{{$inventario->articulo->dsc}}</td>
 						<td>{{$inventario->codigo}}</td>
-						<td>{{$inventario->grupo->nombre}}</td>
+						<td>{{$inventario->grupo->codigo}}</td>
 						<td>{{$inventario->independiente}}</td>
 						{{-- <td>{{$inventario->observacion}}</td> --}}
 

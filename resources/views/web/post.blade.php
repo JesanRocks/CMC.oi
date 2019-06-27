@@ -2,12 +2,9 @@
 @section('content')
 <div class="container">
 	<div class="col-md-12">
-		<h1 class="display-4 text-center">{{ $post->name }}</h1>
-
 		<div class="card text-center m-2">
-			<div class="card-header h5">
-				Categoria
-				<a href="{{ route('category', $post->category->slug) }}">{{ $post->category->name }}</a>
+			<div class="card-header">
+				<h3>{{ $post->name }}</h3>
 			</div>
 			<div class="card-body">
 				@if($post->file)
@@ -18,12 +15,17 @@
 					{{ $post->excerpt}}
 				</p>
 				<hr>
-				{!! $post->body !!}
+				<p class="card-text text-justify">
+					{!! $post->body !!} 
+				</p>	
 				<hr>
 				<strong>Publicado el: <small>{{ $post->created_at }}</small></strong>
 			</div>
 
-			<div class="card-footer text-muted">
+			<div class="card-footer text-muted text-left">
+				<b>Categoria:</b>
+				<a class="p-2 badge badge-danger" href="{{ route('category', $post->category->slug) }}">{{ $post->category->name }}</a>
+				<hr>
 		    	<b>Etiquetas:</b>
 				@foreach($post->tags as $tag)
 					<a href="{{ route('tag', $tag->slug) }}" class="p-2 badge badge-primary">{{ $tag->name }}</a>

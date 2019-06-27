@@ -10,6 +10,7 @@ use App\Http\Requests\ArticuloUpdateRequest;
 use App\Http\Controllers\Controller;
 
 use App\Articulo;
+use App\Subgrupo;
 
 class ArticuloController extends Controller
 {
@@ -20,8 +21,8 @@ class ArticuloController extends Controller
      */
     public function index()
     {
-        $articulos= Articulo::orderBy('id','DESC')->paginate();
-        return view('catalago/articulos.index',compact('articulos'));
+        $articulos= Articulo::orderBy('id','ASC')->paginate();
+        return view('catalogo/articulos.index',compact('articulos'));
     }
 
     /**
@@ -32,7 +33,7 @@ class ArticuloController extends Controller
     public function create()
     {
         $subgrupos = Subgrupo::orderBy('codigo','ASC')->pluck('codigo','id');
-        return view('catalago/articulos.create',compact('subgrupos'));
+        return view('catalogo/articulos.create',compact('subgrupos'));
     }
 
     /**
@@ -58,7 +59,7 @@ class ArticuloController extends Controller
     public function show($id)
     {
         $articulo = Articulo::find($id);
-        return view('catalago/articulos.show',compact('articulo'));
+        return view('catalogo/articulos.show',compact('articulo'));
     }
 
     /**
@@ -71,7 +72,7 @@ class ArticuloController extends Controller
     {
         $articulo = Articulo::find($id);
         $subgrupos = Subgrupo::orderBy('codigo','ASC')->pluck('codigo','id');
-        return view('catalago/articulos.edit',compact('articulo','subgrupos'));
+        return view('catalogo/articulos.edit',compact('articulo','subgrupos'));
     }
 
     /**

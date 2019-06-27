@@ -11,7 +11,7 @@ class PageController extends Controller
 {
     public function blog()
     {
-    	$posts = Post::orderBy('id','DESC')->where('status','PUBLISHED')->paginate(3);
+    	$posts = Post::orderBy('id','DESC')->where('status','PUBLISHED')->paginate(10);
     	return view('web.posts',compact('posts'));
     }
 
@@ -38,5 +38,11 @@ class PageController extends Controller
     {
     	$post = Post::where('slug',$slug)->first();
     	return view('web.post',compact('post'));
+    }
+
+    public function gallery()
+    {
+        $posts = Post::orderBy('id','DESC')->where('status','PUBLISHED')->paginate(16);
+        return view('web.galeria',compact('posts'));
     }
 }

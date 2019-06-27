@@ -9,7 +9,7 @@
 			</div>
 			<div class="card-body">
 			{!! Form::open(['route' => 'articulos.store' ])  !!}
-				@include('catalago/articulos.formularios.form')
+				@include('catalogo/articulos.formularios.form')
 			{!! Form::close() !!}
 			</div>
 

@@ -110,15 +110,10 @@
             </a>
 
             <ul class="ml-3 nav nav-treeview">
-              <!--li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fas fa-truck-moving"></i>
-                  <p>Proveedor</p>
-                </a>
-              </li-->
               <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="fa fa-box-open"></i>
+
                   <p>Catalogo de bienes
                   <i class="fa fa-angle-left right"></i>
                   </p>
@@ -128,39 +123,42 @@
                   <li class="nav-item">
                     <a class="nav-link" href="{{ route('grupos.index') }}">
                       <i class="fas fa-folder-open"></i>
+                      {{-- <i class="fab fa-folders"></i> --}}
+
                       <p>Categorias</p>
                     </a>
                   </li>
 
                   <li class="nav-item">
                     <a class="nav-link" href="{{ route('subgrupos.index') }}">
-                      <i class="fas fa-folder-open"></i>
+{{--                       <i class="far fa-folder-tree"></i> --}}
+                      <i class="far fa-folder"></i>
                       <p>Subcategorias</p>
                     </a>
                   </li>
                   
                   <li class="nav-item">
                     <a class="nav-link" href="{{ route('articulos.index') }}">
-                      <i class="fas fa-tags"></i>
+                      <i class="fas fa-box"></i>
                       <p>Articulos especificos</p>
                     </a>             
                   </li>
 
                   <li class="nav-item">
                     <a class="nav-link" href="{{ route('marcas.index') }}">
-                      <i class="fas fa-newspaper"></i>
+                      <i class="fas fa-trademark"></i>
                       <p>Marcas</p>
                     </a>             
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ route('colores.index') }}">
-                      <i class="fas fa-newspaper"></i>
+                      <i class="fas fa-palette"></i>
                       <p>Colores</p>
                     </a>             
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="{{ route('departamentos.index') }}">
-                      <i class="fas fa-newspaper"></i>
+                      <i class="fas fa-building"></i>
                       <p>Departamentos</p>
                     </a>             
                   </li>
@@ -173,19 +171,6 @@
                   <p>Inventario</p>
                 </a>
               </li>
-              <!--li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fas fa-arrow-alt-circle-right"></i>
-                  <p>Ingresos</p>
-                </a>
-              </li-->
-
-              <!--li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-arrow-alt-circle-left"></i>
-                  <p>Salidas</p>
-                </a>
-              </li-->
             </ul>
           </li>
 

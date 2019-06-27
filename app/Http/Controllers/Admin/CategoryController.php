@@ -106,4 +106,11 @@ class CategoryController extends Controller
 
         return back()->with('info','Eliminado correctamente'); 
     }
+
+    public function navbar()
+    {
+        $categories = Category::orderBy('id','DESC');
+        return view('layouts.blog', compact('categories'));
+    }
+
 }

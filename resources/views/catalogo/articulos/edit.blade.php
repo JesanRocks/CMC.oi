@@ -10,7 +10,7 @@
 			<div class="card-body">
 			{!! Form::model($articulo, ['route' => ['articulos.update', $articulo->id], 
 			'method'=> 'PUT'])  !!}
-				@include('catalago/articulos.formularios.form')
+				@include('catalogo/articulos.formularios.form')
 			{!! Form::close() !!}
 			</div>
 

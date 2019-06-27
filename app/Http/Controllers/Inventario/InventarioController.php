@@ -26,7 +26,7 @@ class InventarioController extends Controller
      */
     public function index()
     {
-        $inventarios = Inventario::orderBy('id','DESC')->paginate();
+        $inventarios = Inventario::orderBy('id','ASC')->paginate();
         return view('inventarios.index',compact('inventarios'));
     }
 

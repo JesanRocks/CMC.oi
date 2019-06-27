@@ -15,7 +15,6 @@ use App\Post;
 use App\Category;
 use App\Tag;
 
-
 class PostController extends Controller
 {
     public function __construct()

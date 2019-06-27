@@ -26,7 +26,7 @@
 					@foreach($articulos as $articulo)
 					<tr>
 						<td>{{$articulo->id}}</td>
-						<td>{{$articulo->nombre}}</td>
+						<td>{{$articulo->dsc}}</td>
 
 						<td width="10px">
 							<a href="{{ route('articulos.show', $articulo->id) }}" 
