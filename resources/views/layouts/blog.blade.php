@@ -101,6 +101,11 @@
      @yield('content')
     </article><!-- /article -->
     <aside class="col-xs-12 col-lg-3 border" style="background-color: #e3e4e5;">
+     
+      @yield('busqueda')
+
+      @yield('categorias')
+
      <h3 class="shadow p-3 mb-3 rounded mt-2 p-1 h6 text-white text-center" style="background-color: #b32821;">
       ¡Enlaces!
      </h3>
@@ -108,7 +113,6 @@
       <div class="card mb-3">
         <img src="/image/logo_abmc.png" class="card-img-top" alt="...">
         <div class="card-body">
-{{--           <h5 class="card-title">Alcaldia del Municipio Cedeño</h5> --}}
         </div>
       </div>
 

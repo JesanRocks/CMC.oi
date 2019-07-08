@@ -13,8 +13,10 @@ try {
     require('bootstrap');
     require('admin-lte');
 
- //    var $  = require( 'jquery' );
-	// var dt = require( 'datatables.net' )();
+
+	window.dt = require( 'datatables.net' )();
+	window.dt_dt = require( 'datatables.net-dt' )();
+	window.dt_bs4 = require( 'datatables.net-bs4' )();
 } catch (e) {}
 
 /**

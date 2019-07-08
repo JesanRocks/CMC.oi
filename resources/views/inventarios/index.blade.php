@@ -54,13 +54,50 @@
 				</div>
 			</div>
 
-			<div class="card-body p-0">
-			<table class="table table-hover">
+			<div class="card-body pl-0 pr-0">
+
+				<table id="table_id" class="table table-hover">
+				    <thead class="bg-dark">
+				        <tr>
+					        <th>ID</th>
+							<th>Nombre</th>
+							<th>Cod</th>
+							<th>Grupo</th>
+							<th>N° I.</th>
+							<th>Opciones</th>
+				        </tr>
+				    </thead>
+				    <tbody>
+				@foreach($inventarios as $inventario)
+					<tr>
+						<td>{{$inventario->id}}</td>
+						<td>{{$inventario->articulo->dsc}}</td>
+						<td>{{$inventario->codigo}}</td>
+						<td>{{$inventario->grupo->codigo}}</td>
+						<td>{{$inventario->independiente}}</td>
+
+						<td class="d-flex bd-highlight">
+							<a href="{{ route('inventarios.show', $inventario->id) }}" 
+							class="btn btn-warning ml-3"><i class="far fa-eye"></i><span class="d-none d-md-block d-lg-none">Ver</span>  </a>
+
+							<a href="{{ route('inventarios.edit', $inventario->id) }}" 
+							class="btn btn-warning ml-3"><i class="fas fa-edit"></i><span class="d-none d-md-block d-lg-none">Editar</span> </a>
+
+							{!! Form::open(['route' => ['inventarios.destroy',$inventario->id ], 
+							'method'=> 'DELETE' ])  !!}
+								<button type="" class="btn btn-danger ml-3"><i class="fas fa-trash-alt"></i>  <span class="d-none d-md-block d-lg-none">Eliminar</span></button>
+							{!! Form::close() !!}
+						</td>
+					</tr>
+					@endforeach
+				    </tbody>   
+				</table>
+
+{{-- 			<table class="table table-hover">
 				<thead class="bg-dark">
 					<tr>
 						<th>ID</th>
 						<th>Nombre</th>
-						<!--th>Cant.</th-->
 						<th>Cod</th>
 						<th>Grupo</th>
 						<th>N° I.</th>
@@ -71,12 +108,11 @@
 					@foreach($inventarios as $inventario)
 					<tr>
 						<td>{{$inventario->id}}</td>
-{{-- Se define la variable, se llama al metodo (La relacion que se definió en el modelo) con el nombre del campo o atributo, de la tabla relacionada. --}}
+				Se define la variable, se llama al metodo (La relacion que se definió en el modelo) con el nombre del campo o atributo, de la tabla relacionada.
 						<td class="text-justify">{{$inventario->articulo->dsc}}</td>
 						<td>{{$inventario->codigo}}</td>
 						<td>{{$inventario->grupo->codigo}}</td>
 						<td>{{$inventario->independiente}}</td>
-						{{-- <td>{{$inventario->observacion}}</td> --}}
 
 						<td width="10px">
 							<a href="{{ route('inventarios.show', $inventario->id) }}" 
@@ -98,16 +134,24 @@
 					</tr>
 					@endforeach
 				</tbody>
-			</table>
+			</table> --}}
 
 			</div>
 
-			<div class="card-footer text-muted">
-		    {{ $inventarios->render() }}
+			<div class="card-footer text-muted mt-3">
 			</div>
 			
 		</div>
 
 	</div>
 </div>
+
+@endsection
+
+@section('scripts')
+<script type="text/javascript">
+	$(document).ready( function () {
+	    $('#table_id').DataTable();
+	} );
+</script>
 @endsection
