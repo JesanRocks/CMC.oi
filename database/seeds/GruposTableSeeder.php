@@ -17,42 +17,42 @@ class GruposTableSeeder extends Seeder
         ]);
 
         App\Grupo::create([
-            'codigo'    =>'14000-0000',
+            'codigo'    =>'14000',
             'dsc'       =>'Maquinaria y demás equipos de construcción, campo, industria y taller'
         ]);
 
         App\Grupo::create([
-            'codigo'    =>'15000-0000',
+            'codigo'    =>'15000',
             'dsc'       =>'Equipos de transporte, tracción y elevación'
         ]);
 
         App\Grupo::create([
-            'codigo'    =>'16000-0000',
+            'codigo'    =>'16000',
             'dsc'       =>'Equipos de comunicaciones y de señalamiento'
         ]);
 
         App\Grupo::create([
-            'codigo'    =>'17000-0000',
+            'codigo'    =>'17000',
             'dsc'       =>'Equipos médicos - quirúrgicos, dentales y veterinarios'
         ]);
 
         App\Grupo::create([
-            'codigo'    =>'18000-0000',
+            'codigo'    =>'18000',
             'dsc'       =>'Equipos científicos, religiosos, de enseñanza y recreación'
         ]);
 
         App\Grupo::create([
-            'codigo'    =>'19000-0000',
+            'codigo'    =>'19000',
             'dsc'       =>'Equipos de defensa y seguridad del Estado'
         ]);
 
         App\Grupo::create([
-            'codigo'    =>'20000-0000',
+            'codigo'    =>'20000',
             'dsc'       =>'Máquinas, muebles y demás equipos de oficina y de alojamiento'
         ]);
 
         App\Grupo::create([
-            'codigo'    =>'21000-0000',
+            'codigo'    =>'21000',
             'dsc'       =>'Semovientes'
         ]);
 

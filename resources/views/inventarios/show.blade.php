@@ -42,21 +42,6 @@
 					</tbody>
 				</table>
 
-				{{-- <td><strong>Articulo: </strong> {{ $inventario->articulo->nombre }}</td>
-				<td><strong>Cantidad:</strong> {{ $inventario->cantidad }} </td>
-				<td><strong>Codigo:</strong> {{ $inventario->codigo }} </td>
-				<td><strong>Grupo:</strong>  {{ $inventario->grupo->nombre }} </td>
-				<td><strong>N° Independiente: </strong>  {{ $inventario->independiente }} </td>
-				<td><strong>Serial: </strong>  {{ $inventario->serial }} </td>
-				<td><strong>Modelo: </strong>  {{ $inventario->modelo }} </td>
-				<td><strong>Marca: </strong>  {{ $inventario->marca->nombre }} </td>
-				<td><strong>Color: </strong>  {{ $inventario->color->nombre }} </td>
-				<td><strong>Incorporpación: </strong>  {{ $inventario->incorp }} Bs</td>
-				<td><strong>Desincorpocación: </strong>  {{ $inventario->desincorp }} Bs</td>
-				<td><strong>Observación: </strong>  {{ $inventario->observacion }} </td>
-				Buscar incluir nombre del responsable 
-				<td><strong>Añadido por: </strong> {{ $articulo->user_id }}</td>--}}
-
 				<td><strong>Fecha de registro: </strong> {{$inventario->created_at }}</td>
 			</div>
 

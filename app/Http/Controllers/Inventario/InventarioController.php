@@ -19,6 +19,10 @@ use App\User;
 
 class InventarioController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('registrador');
+    }    
     /**
      * Display a listing of the resource.
      *
@@ -39,7 +43,7 @@ class InventarioController extends Controller
     {
         //Consulta en la BD, de todos lo articulos para añadirlos al select
         $articulos      = Articulo::orderBy('codigo','ASC')->pluck('dsc','id');
-        $grupos         = Grupo::orderBy('codigo','ASC')->pluck('codigo','id');
+        $grupos         = Grupo::orderBy('id','ASC')->pluck('codigo','id');
         $marcas         = Marca::orderBy('nombre','ASC')->pluck('nombre','id');
         $colores        = Color::orderBy('nombre','ASC')->pluck('nombre','id');
         $departamentos  = Departamento::orderBy('nombre','ASC')->pluck('nombre','id');

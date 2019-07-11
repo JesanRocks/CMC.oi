@@ -46,4 +46,29 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+    
+/* Valores para el middleware */
+    public function Administrador()
+    {
+        if ($this->cargo->dsc == "Administrador(a)") {
+            return true;
+        }
+        return false;
+    }
+
+    public function Escritor()
+    {
+        if ($this->cargo->dsc == "Escritor(a) de contenido") {
+            return true;
+        }
+        return false;
+    }
+
+    public function Registrador()
+    {
+        if ($this->cargo->dsc == "Registrador(a) de inventario") {
+            return true;
+        }
+        return false;
+    }
 }

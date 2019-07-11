@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
 
-use Illuminate\Support\Facades\Crypt;//Encriptar
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Hash;//Encriptar
 
 use App\Http\Controllers\Controller;
 use App\User;
@@ -16,6 +16,11 @@ use App\Cargo;
 
 class UsuarioController extends Controller
 {
+    /*Only the user with 'cargo_id' == 'Administrador' be make create New users.*/
+    public function __construct()
+    {
+        $this->middleware('administrador');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +28,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $usuarios = User::orderBy('id','DESC')->paginate();
+        $usuarios = User::orderBy('id','ASC')->paginate();
         return view('usuarios.index', compact('usuarios'));
     }
     /**
@@ -85,9 +90,19 @@ class UsuarioController extends Controller
      */
     public function update(UserUpdateRequest $request, $id)
     {
+
+        // $usuario = User::find($id);
+        // $usuario->fill($request->all())->save();
+
+        // return redirect()->route('usuarios.edit', $usuario->id)
+        //     ->with('info','Usuario actualizado con exito');
+
         $usuario = User::find($id);
+        
+        // Si recibe algun cambio en el correo o la contraseña lo actualiza
         $request->request->add([
-            'password' => Hash::make($request->input('password'))
+            'password' => Hash::make($request->input('password')),
+            'email' => $request->input('email'),
         ]);
         
         $usuario->fill($request->all())->save();

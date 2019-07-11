@@ -46,12 +46,15 @@ class PageController extends Controller
 
     public function gallery()
     {
+        //Esta vista no utiliza las categorias... ¿deberia añadirlo?
+        $categorias = Category::orderBy('name','ASC')->get();//Categorias del blog en layout
         $posts = Post::orderBy('id','DESC')->where('status','PUBLISHED')->paginate(16);
-        return view('web.galeria',compact('posts'));
+        return view('web.galeria',compact('posts','categorias'));
     }
 
     public function search(Request $request)
     {
+        $categorias = Category::orderBy('name','ASC')->get();//Categorias del blog en layout
         $search = $request->get('search');
         $posts  = DB::table('posts')->where([
             ['status', '=', 'PUBLISHED'],
@@ -59,11 +62,11 @@ class PageController extends Controller
         ])->paginate(5);        
 
         if (count($posts) > 0) {
-            return view('web.posts',compact('posts'))
+            return view('web.posts',compact('posts','categorias'))
             ->withDetails($posts)
             ->withQuery($search);
         }else{
-            return view('web.posts',compact('posts'))->withMessage('Lo sentimos pero no hemos encontrado lo que estás buscando.');
+            return view('web.posts',compact('posts','categorias'))->withMessage('Lo sentimos pero no hemos encontrado lo que estás buscando.');
         }
         
     }

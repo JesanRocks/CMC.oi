@@ -59,7 +59,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-
+          @if(Auth::user()->Administrador())
           <li class="nav-item has-treeview">
             <a href="{{ route('usuarios.index') }}" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
@@ -68,8 +68,10 @@
               </p>
             </a>
           </li>
-
+          @endif
           <li class="nav-header">Módulos</li>
+          
+          @if(Auth::user()->Administrador() OR  Auth::user()->Escritor())
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-th"></i>
@@ -99,7 +101,9 @@
               </li>
             </ul>
           </li>          
+          @endif
 
+          @if(Auth::user()->Administrador() OR  Auth::user()->Registrador())
           <li class="nav-item has-treeview">
             <a href="" class="nav-link">
               <i class="nav-icon fas fa-clipboard-list"></i>
@@ -131,7 +135,7 @@
 
                   <li class="nav-item">
                     <a class="nav-link" href="{{ route('subgrupos.index') }}">
-{{--                       <i class="far fa-folder-tree"></i> --}}
+
                       <i class="far fa-folder"></i>
                       <p>Subcategorias</p>
                     </a>
@@ -173,7 +177,7 @@
               </li>
             </ul>
           </li>
-
+          @endif
           <li class="nav-item has-treeview">
             <a class="nav-link" href="{{ route('logout') }}"
               onclick="event.preventDefault();

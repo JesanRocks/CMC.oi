@@ -2,29 +2,29 @@
 
 <div class="row">
 {{-- El listado de los articulos viene de la variable "$articulos", que proviene del controlador "InventarioController" --}}
-<div class="form-group col-6">
+<div class="form-group col-4">
   {{ Form::label('articulo _id', 'Seleccione el tipo de articulo')}}
   {{ Form::select('articulo_id', $articulos, null, ['class' => 'form-control']) }}
 </div>
 
-<div class="form-group col-6">
+<div class="form-group col-3" hidden>
   {{Form::label('cantidad', 'Cantidad')}}
   {{Form::number('cantidad', 1, ['class' => 'form-control']) }}
 </div>
-
-<div class="form-group col-4">
+{{-- Añadida la funcion onChange valueSelect --}}
+<div class="form-group col-3">
+  {{ Form::label('grupo_id', 'Seleccione el Grupo')}}
+  {{ Form::select('grupo_id', $grupos, null, ['class' => 'form-control','onchange'=>'valueSelect(this.options[this.selectedIndex].innerHTML);']) }}
+</div>
+{{-- Añadida la funcion onChange valueInput --}}
+<div class="form-group col-2">
+  {{Form::label('independiente', 'N° Indentificador')}}
+  {{Form::text('independiente', null, ['class' => 'form-control','placeholder'=>'0000','onchange'=>'valueInput(this.value);']) }}
+</div>
+{{-- Este campo recibe los parametros de las funciones. --}}
+<div class="form-group col-3">
   {{Form::label('codigo', 'Codigo')}}
   {{Form::text('codigo', null, ['class' => 'form-control','placeholder'=>'CMMC-00000-0000']) }}
-</div>
-
-<div class="form-group col-4">
-  {{ Form::label('grupo_id', 'Seleccione el Grupo')}}
-  {{ Form::select('grupo_id', $grupos, null, ['class' => 'form-control']) }}
-</div>
-
-<div class="form-group col-4">
-  {{Form::label('independiente', 'N° Independiente')}}
-  {{Form::text('independiente', null, ['class' => 'form-control','placeholder'=>'0000']) }}
 </div>
 
 <div class="form-group col-3">

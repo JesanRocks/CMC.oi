@@ -12,6 +12,10 @@ use App\Color;
 
 class ColorController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('registrador');
+    }
     /**
      * Display a listing of the resource.
      *

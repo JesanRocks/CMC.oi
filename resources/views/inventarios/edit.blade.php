@@ -23,3 +23,20 @@
 	</div>
 </div>
 @endsection
+@section('scripts') 
+	<script type="text/javascript">
+		var ident = '', grupo = '';
+
+		var valueSelect = function(foo){
+		  grupo = foo;
+		  
+		  document.getElementById('codigo').value = "CMMC-"+grupo+"-"+ident;
+		};
+
+		function valueInput(valor){
+		  ident = valor;
+
+		  document.getElementById('codigo').value = "CMMC-"+grupo+"-"+ident;
+		}
+	</script>
+@endsection

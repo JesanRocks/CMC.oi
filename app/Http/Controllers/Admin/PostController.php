@@ -8,6 +8,7 @@ use App\Http\Requests\PostStoreRequest;
 use App\Http\Requests\PostUpdateRequest;
 
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\Controller;
 
@@ -20,6 +21,7 @@ class PostController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('escritor');
     }
     /**
      * Display a listing of the resource.
@@ -28,9 +30,18 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('id','DESC')
-        ->where('user_id',auth()->user()->id)// Seleccion de post por usuario... creador
-        ->paginate();
+
+        $user=Auth::user();
+
+        if ($user->Administrador()) {
+            $posts = Post::orderBy('id','DESC')->paginate();// Seleccion de todos los post por ser Admin
+        }else{
+            $posts = Post::orderBy('id','DESC')
+            ->where('user_id',auth()->user()->id)// Seleccion de post creado solo por el usuario 
+            ->paginate();
+        }
+
+
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -76,8 +87,16 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::find($id);
-        $this->authorize('pass',$post);
+        
+        $user=Auth::user();
+
+        if ($user->Administrador()) {
+            // Seleccion de todos los post por ser Admin
+            $post = Post::find($id);
+        }else{
+            $post = Post::find($id);
+            $this->authorize('pass',$post);
+        }
         
         return view('admin.posts.show', compact('post',));
     }
@@ -90,8 +109,16 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        $post       = Post::find($id);
-        $this->authorize('pass',$post);
+        $user=Auth::user();
+
+        if ($user->Administrador()) {
+            // Seleccion de todos los post por ser Admin
+            $post       = Post::find($id);
+        }else{
+            $post       = Post::find($id);
+            $this->authorize('pass',$post);
+        }
+
         $categories = Category::orderBy('name','ASC')->pluck('name','id');
         $tags       = Tag::orderBy('name','ASC')->get();
         
@@ -107,9 +134,17 @@ class PostController extends Controller
      */
     public function update(PostUpdateRequest $request, $id)
     {
-        $post = Post::find($id);
-        $this->authorize('pass',$post);
-        $post->fill($request->all())->save();
+        $user=Auth::user();
+
+        if ($user->Administrador()) {
+            // Seleccion de todos los post por ser Admin
+            $post = Post::find($id);
+            $post->fill($request->all())->save();
+        }else{
+            $post = Post::find($id);
+            $this->authorize('pass',$post);
+            $post->fill($request->all())->save();
+        }
 
         //Imagen
         if ($request->file('file')) {
@@ -132,9 +167,18 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post = Post::find($id);
-        $this->authorize('pass',$post);
-        $post->delete();
+        $user=Auth::user();
+
+        if ($user->Administrador()) {
+            // Seleccion de todos los post por ser Admin
+            $post = Post::find($id);
+            $post->delete();
+   
+        }else{
+            $post = Post::find($id);
+            $this->authorize('pass',$post);
+            $post->delete();
+        }
 
         return back()->with('info','Eliminado correctamente'); 
     }

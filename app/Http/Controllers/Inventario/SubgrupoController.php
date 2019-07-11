@@ -10,6 +10,10 @@ use App\Grupo;
 
 class SubgrupoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('registrador');
+    }
     /**
      * Display a listing of the resource.
      *
