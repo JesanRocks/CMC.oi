@@ -1,0 +1,9 @@
+.transparent{ background: transparent; background-color: transparent; transition: all 1s ease;}
+
+.nav-pills .nav-link.active, .show>.nav-pills .nav-link{ background: #000000 !important;}
+
+.mall{ margin-top: 100px; margin-bottom: 100px;}
+
+.size{ height: 50px; transition: all 1s ease;}
+
+.background{ background: url('image/inicio.jpg'); background-repeat: no-repeat; background-position: center bottom; background-attachment: fixed; background-size: cover;}

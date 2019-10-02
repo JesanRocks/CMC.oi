@@ -13,9 +13,16 @@ class PageController extends Controller
     public function blog()
     {
     	$categorias = Category::orderBy('name','ASC')->get();//Categorias del blog en layout
-        $posts = Post::orderBy('id','DESC')->where('status','PUBLISHED')->paginate(10);
-        
-    	return view('web.posts',compact('posts','categorias'));
+        $posts = Post::orderBy('id','DESC')->where('status','PUBLISHED')->paginate(3);
+        $photos = Post::orderBy('id','ASC')->where('status','PUBLISHED')->paginate(20);
+    	return view('web.home',compact('posts','categorias','photos'));
+    }
+
+    public function publicaciones()
+    {
+        $categorias = Category::orderBy('name','ASC')->get();//Categorias del blog en layout
+        $posts = Post::orderBy('id','DESC')->where('status','PUBLISHED')->paginate(20);
+        return view('web.posts',compact('posts','categorias'));
     }
 
     public function category($slug)
@@ -23,7 +30,7 @@ class PageController extends Controller
         $categorias = Category::orderBy('name','ASC')->get();//Categorias del blog en layout
         $category = Category::where('slug',$slug)->pluck('id')->first();
         $posts = Post::where('category_id',$category)
-                ->orderBy('id','DESC')->where('status','PUBLISHED')->paginate(3);
+                ->orderBy('id','DESC')->where('status','PUBLISHED')->paginate(20);
 
         return view('web.posts',compact('posts','categorias'));
     }
@@ -33,23 +40,16 @@ class PageController extends Controller
         $categorias = Category::orderBy('name','ASC')->get();//Categorias del blog en layout
         $posts = Post::whereHas('tags', function($query) use($slug){
             $query->where('slug', $slug);
-        })->orderBy('id','DESC')->where('status','PUBLISHED')->paginate(3);
+        })->orderBy('id','DESC')->where('status','PUBLISHED')->paginate(20);
                 
         return view('web.posts',compact('posts','categorias'));
     }
 
     public function post($slug)
     {
-    	$post = Post::where('slug',$slug)->first();
-    	return view('web.post',compact('post'));
-    }
-
-    public function gallery()
-    {
-        //Esta vista no utiliza las categorias... ¿deberia añadirlo?
-        $categorias = Category::orderBy('name','ASC')->get();//Categorias del blog en layout
-        $posts = Post::orderBy('id','DESC')->where('status','PUBLISHED')->paginate(16);
-        return view('web.galeria',compact('posts','categorias'));
+    	$categorias = Category::orderBy('name','ASC')->get();//Categorias del blog en layout
+        $post = Post::where('slug',$slug)->first();
+    	return view('layouts.portapost',compact('post','categorias'));
     }
 
     public function search(Request $request)

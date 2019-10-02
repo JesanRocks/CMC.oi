@@ -1,7 +1,8 @@
-@extends('layouts.blog')
+@extends('layouts.portafolio')
 @section('content')
+
 <div class="container">
-	<div class="col-md-12">
+	<div class="col-sm-12">
 		<div class="card text-center m-2">
 			<div class="card-header">
 				<h3>{{ $post->name }}</h3>

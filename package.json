@@ -10,23 +10,24 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
-        "@fortawesome/fontawesome-free": "^5.9.0",
+        "@fortawesome/fontawesome-free": "^5.11.2",
         "axios": "^0.18.1",
         "bootstrap": "^4.3.1",
         "jquery": "^3.4.1",
-        "laravel-mix": "^4.1.2",
-        "lodash": "^4.17.14",
+        "laravel-mix": "^4.1.4",
+        "lodash": "^4.17.15",
         "popper.js": "^1.15.0",
         "resolve-url-loader": "^2.3.1",
-        "sass": "^1.22.3",
-        "sass-loader": "^7.1.0",
+        "sass": "^1.22.12",
+        "sass-loader": "^7.3.1",
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "admin-lte": "^3.0.0-beta.1",
+        "admin-lte": "^3.0.0-rc.1",
         "datatables.net": "^1.10.19",
         "datatables.net-bs4": "^1.10.19",
-        "datatables.net-dt": "^1.10.19"
+        "datatables.net-dt": "^1.10.19",
+        "vuex": "^3.1.1"
     }
 }

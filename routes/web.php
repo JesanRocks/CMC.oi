@@ -14,20 +14,14 @@ Route::get('/sistema', function () {
 Auth::routes();
 //Blog: Vistas para visitantes
 Route::get('/blog',				'Web\PageController@blog')->name('blog');
+Route::get('/publicaciones',	'Web\PageController@publicaciones')->name('publicaciones');
+
 Route::get('/buscar',			'Web\PageController@search')->name('search');
+
 Route::get('/entrada/{slug}',	'Web\PageController@post')->name('post');
 Route::get('/categoria/{slug}', 'Web\PageController@category')->name('category');
 Route::get('/etiqueta/{slug}',	'Web\PageController@tag')->name('tag');
-/*Routas para contenido estático
-Route::get('/reseña', function () { return view('reseña'); })->name('reseña');*/
-Route::get('/quienes-somos', function () { return view('web.institucion'); })->name('institucion');
-Route::get('/organizacion', function () { return view('web.organizacion'); })->name('organizacion');
-Route::get('/contacto', function () { return view('web.contacto'); })->name('contacto');
-//Enlace Multimedia
-Route::get('/galeria',	'Web\PageController@gallery')->name('galeria');
-// Route::get('/videos', function () { return view('videos'); })->name('videos');
-/*Administración: menú para usuarios logueados
-Control de usuarios*/
+/*Control de usuarios*/
 Route::resource('usuarios',		'UsuarioController');
 //Control de publicaciones del Blog 
 Route::resource('tags',			'Admin\TagController');
