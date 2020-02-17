@@ -6,6 +6,11 @@
 		<div class="card text-center m-2">
 			<div class="card-header h5">
 				Editar subgrupo
+				<div class="d-flex justify-content-between">
+					<a href="{{ route('subgrupos.index') }}" class="btn btn-primary ml-5">
+						<i class="fas fa-arrow-circle-left"></i> Volver 
+					</a>
+				</div>
 			</div>
 			<div class="card-body">
 			{!! Form::model($subgrupo, ['route' => ['subgrupos.update', $subgrupo->id], 

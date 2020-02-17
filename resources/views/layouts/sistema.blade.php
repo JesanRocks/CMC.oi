@@ -26,7 +26,7 @@
         <a href="{{ route('sistema') }}" class="nav-link">Inicio</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('blog') }}" class="nav-link">Blog</a>
+        <a href="{{ route('blog') }}" class="nav-link">Página principal</a>
       </li>
     </ul>
 
@@ -61,10 +61,10 @@
                with font-awesome or any other icon font library -->
           @if(Auth::user()->Administrador())
           <li class="nav-item has-treeview">
-            <a href="{{ route('usuarios.index') }}" class="nav-link">
+            <a href="{{ route('usuarios.index') }}" class="nav-link {{ request()->is('usuarios*') ? 'bg-dark' : '' }}">
               <i class="nav-icon fas fa-users"></i>
               <p>
-                Usuarios
+                Administrar usuarios
               </p>
             </a>
           </li>
@@ -72,31 +72,34 @@
           <li class="nav-header">Módulos</li>
           
           @if(Auth::user()->Administrador() OR  Auth::user()->Escritor())
-          <li class="nav-item has-treeview">
+          <li class="nav-item has-treeview 
+          {{ request()->is('tags*') ? 'menu-open' : '' }}
+          {{ request()->is('categories*') ? 'menu-open' : '' }}
+          {{ request()->is('posts*') ? 'menu-open' : '' }}">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-th"></i>
               <p>
-                Blog
+                Procesar publicaciones
                 <i class="right fa fa-angle-left"></i>
               </p>
             </a>
             <ul class="ml-3 nav nav-treeview">
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('tags.index') }}">
+                <a class="nav-link {{ request()->is('tags*') ? 'bg-dark' : '' }}" href="{{ route('tags.index') }}">
                   <i class="fas fa-tags"></i>
                   <p>Etiquetas</p>
                 </a>             
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('categories.index') }}">
+                <a class="nav-link {{ request()->is('categories*') ? 'bg-dark' : '' }}" href="{{ route('categories.index') }}">
                   <i class="fas fa-folder-open"></i>
                   <p>Categorias</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('posts.index') }}">
+                <a class="nav-link {{ request()->is('posts*') ? 'bg-dark' : '' }}" href="{{ route('posts.index') }}">
                   <i class="fas fa-newspaper"></i>
-                  <p>Entradas</p>
+                  <p>Publicaciones</p>
                 </a>             
               </li>
             </ul>
@@ -104,20 +107,33 @@
           @endif
 
           @if(Auth::user()->Administrador() OR  Auth::user()->Registrador())
-          <li class="nav-item has-treeview">
+          <li class="nav-item has-treeview
+          {{ request()->is('grupos*') ? 'menu-open' : '' }}
+          {{ request()->is('subgrupos*') ? 'menu-open' : '' }}
+          {{ request()->is('articulos*') ? 'menu-open' : '' }}
+          {{ request()->is('marcas*') ? 'menu-open' : '' }}
+          {{ request()->is('colores*') ? 'menu-open' : '' }}
+          {{ request()->is('departamentos*') ? 'menu-open' : '' }}
+          {{ request()->is('inventarios*') ? 'menu-open' : '' }}
+          ">
             <a href="" class="nav-link">
               <i class="nav-icon fas fa-clipboard-list"></i>
               <p>
-                Control de inventario
+                Gestionar inventario
                 <i class="fa fa-angle-left right"></i>
               </p>
             </a>
 
             <ul class="ml-3 nav nav-treeview">
-              <li class="nav-item">
+              <li class="nav-item 
+                        {{ request()->is('grupos*') ? 'menu-open' : '' }}
+          {{ request()->is('subgrupos*') ? 'menu-open' : '' }}
+          {{ request()->is('articulos*') ? 'menu-open' : '' }}
+          {{ request()->is('marcas*') ? 'menu-open' : '' }}
+          {{ request()->is('colores*') ? 'menu-open' : '' }}
+          {{ request()->is('departamentos*') ? 'menu-open' : '' }}">
                 <a href="#" class="nav-link">
                   <i class="fa fa-box-open"></i>
-
                   <p>Catalogo de bienes
                   <i class="fa fa-angle-left right"></i>
                   </p>
@@ -125,43 +141,40 @@
                 <ul class="ml-3 nav nav-treeview">
                   
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ route('grupos.index') }}">
+                    <a class="nav-link {{ request()->is('grupos*') ? 'bg-dark' : '' }}" href="{{ route('grupos.index') }}">
                       <i class="fas fa-folder-open"></i>
-                      {{-- <i class="fab fa-folders"></i> --}}
-
-                      <p>Categorias</p>
+                      <p>Categorías</p>
                     </a>
                   </li>
 
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ route('subgrupos.index') }}">
-
+                    <a class="nav-link {{ request()->is('subgrupos*') ? 'bg-dark' : '' }}" href="{{ route('subgrupos.index') }}">
                       <i class="far fa-folder"></i>
-                      <p>Subcategorias</p>
+                      <p>Subcategorías</p>
                     </a>
                   </li>
                   
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ route('articulos.index') }}">
+                    <a class="nav-link {{ request()->is('articulos*') ? 'bg-dark' : '' }}" href="{{ route('articulos.index') }}">
                       <i class="fas fa-box"></i>
-                      <p>Articulos especificos</p>
+                      <p>Artículos específicos</p>
                     </a>             
                   </li>
 
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ route('marcas.index') }}">
+                    <a class="nav-link {{ request()->is('marcas*') ? 'bg-dark' : '' }}" href="{{ route('marcas.index') }}">
                       <i class="fas fa-trademark"></i>
                       <p>Marcas</p>
                     </a>             
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ route('colores.index') }}">
+                    <a class="nav-link {{ request()->is('colores*') ? 'bg-dark' : '' }}" href="{{ route('colores.index') }}">
                       <i class="fas fa-palette"></i>
                       <p>Colores</p>
                     </a>             
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{ route('departamentos.index') }}">
+                    <a class="nav-link {{ request()->is('departamentos*') ? 'bg-dark' : '' }}" href="{{ route('departamentos.index') }}">
                       <i class="fas fa-building"></i>
                       <p>Departamentos</p>
                     </a>             
@@ -170,7 +183,7 @@
               </li>
 
               <li class="nav-item">
-                <a href="{{ route('inventarios.index') }}" class="nav-link">
+                <a href="{{ route('inventarios.index') }}" class="nav-link  {{ request()->is('inventarios*') ? 'bg-dark' : '' }}">
                   <i class="fas fa-arrow-alt-circle-right"></i>
                   <p>Inventario</p>
                 </a>

@@ -5,10 +5,13 @@
 	<div class="col-md-12">
 		<div class="card text-center m-2">
 			<div class="card-header h5">
-				Listado de Usuarios
-				<div class="d-flex justify-content-end">
+				Consultar usuarios
+				<div class="d-flex justify-content-between">
+					<a href="{{ route('sistema') }}" class="btn btn-primary ml-5">
+						<i class="fas fa-arrow-circle-left"></i> Volver 
+					</a>
 					<a href="{{ route('usuarios.create') }}" class="btn btn-primary ml-5">
-						<i class="fas fa-plus-square"></i> Crear 
+						<i class="fas fa-plus-square"></i> Registrar 
 					</a>
 				</div>
 			</div>
@@ -34,7 +37,7 @@
 
 						<td width="10px">
 							<a href="{{ route('usuarios.edit', $usuario->id) }}" 
-							class="btn btn-warning"><i class="fas fa-edit"></i> <span class="d-none d-md-block d-lg-none">Editar</span></a>
+							class="btn btn-warning"><i class="fas fa-edit"></i> <span class="d-none d-md-block d-lg-none">Modificar</span></a>
 						</td>
 
 						<td width="10px">

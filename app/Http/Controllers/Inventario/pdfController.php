@@ -23,4 +23,12 @@ use App\Inventario;
                 ->setPaper('letter','portrait');
                 return $pdf->download();
             }
+
+            public function etiquetas()
+            {
+                $inventarios = Inventario::orderBy('articulo_id','ASC')->get();
+                $pdf = PDF::loadView('documents.etiquetas',compact('inventarios'))
+                ->setPaper('letter','portrait');
+                return $pdf->stream();
+            }
         }

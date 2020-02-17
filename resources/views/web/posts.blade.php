@@ -5,7 +5,7 @@
 <div class="container">
 	<div class="col-md-12 mt-3">
 		<div class="shadow-lg p-3 mb-4 bg-info rounded" style="margin-top: 90px;">
-			<h1 class="text-left">Todas las entradas</h1>
+			<h1 class="text-left">Todas las publicaciones</h1>
 		</div>
 
     @if(isset($details))

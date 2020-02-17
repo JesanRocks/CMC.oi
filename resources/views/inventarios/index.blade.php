@@ -2,14 +2,16 @@
 @section('title'," Inventario" )
 @section('content') 
 <div class="container">
-	<div class="col-md-12">
+	<div class="col-xs-12">
 		
-		<div class="card text-center m-2">
+		<div class="card text-center">
 			<div class="card-header h4">
-				Inventario 
-				<div class="d-flex bd-highlight">
-				  
-				  <div class="m-0 p-2 bd-highlight">
+				Consultar inventario
+				<div class="d-flex justify-content-between">
+					<a href="{{ route('sistema') }}" class="btn btn-primary">
+						<i class="fas fa-arrow-circle-left"></i> Volver 
+					</a>
+
 					<div class="btn-group">
 						<a href="{{ route('descarga.pdf') }}" class="btn btn-danger">
 							<i class="fas fa-file-pdf"></i> PDF 
@@ -18,39 +20,17 @@
 						<a href="#" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						</a>
 						<div class="dropdown-menu">
-						    <a class="dropdown-item" href="{{ route('pdf') }}">Ver</a>
-						    <a class="dropdown-item" href="#">Another action</a>
-						    <a class="dropdown-item" href="#">Something else here</a>
+						    <a class="dropdown-item" href="{{ route('pdf') }}">Ver listado completo</a>
+						    <a class="dropdown-item" href="{{ route('etiquetas') }}">Etiquetas</a>
+						    {{-- <a class="dropdown-item" href="#">Something else here</a> --}}
 						    <div class="dropdown-divider"></div>
-						    <a class="dropdown-item" href="#">Separated link</a>
+						    <a class="dropdown-item" href="{{ route('descarga.pdf') }}">Descargar listado</a>
 						</div>
 					</div>
 
-				  </div>
-
-				  <div class="m-0 p-2 bd-highlight">
-					<div class="btn-group">
-						<a href="{{ route('inventarios.create') }}" class="btn btn-success">
-							<i class="fas fa-file-excel"></i> Excel 
-						</a>
-
-						<a href="{{ route('inventarios.create') }}" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						</a>
-						<div class="dropdown-menu dropdown-menu-right">
-						    <a class="dropdown-item" href="#">Action</a>
-						    <a class="dropdown-item" href="#">Another action</a>
-						    <a class="dropdown-item" href="#">Something else here</a>
-						    <div class="dropdown-divider"></div>
-						    <a class="dropdown-item" href="#">Separated link</a>
-						</div>
-					</div>
-
-				  </div>
-
-				  <div class="ml-auto p-2 bd-highlight">					
-				  	<a href="{{ route('inventarios.create') }}" class="btn btn-primary ml-5">
-						<i class="fas fa-plus-square"></i> Crear 
-					</a></div>
+					<a href="{{ route('inventarios.create') }}" class="btn btn-primary">
+						<i class="fas fa-plus-square"></i> Registrar bien 
+					</a>
 				</div>
 			</div>
 
@@ -59,26 +39,26 @@
 				<table id="table_id" class="table table-hover">
 				    <thead class="bg-dark">
 				        <tr>
-					        <th>ID</th>
-							<th>Nombre</th>
-							<th>Cod</th>
-							<th>Grupo</th>
-							<th>N° I.</th>
-							<th>Opciones</th>
+					        <td class="d-none d-sm-block">ID</td>
+							<td>Nombre</td>
+							<td>Cod</td>
+							{{-- <td>Grupo</td> --}}
+							{{-- <td>N° I.</td> --}}
+							<td>Opciones</td>
 				        </tr>
 				    </thead>
 				    <tbody>
 				@foreach($inventarios as $inventario)
 					<tr>
-						<td>{{$inventario->id}}</td>
-						<td>{{$inventario->articulo->dsc}}</td>
+						<td class="d-none d-sm-block">{{$inventario->id}}</td>
+						<td class="text-justify">{{$inventario->articulo->dsc}}</td>
 						<td>{{$inventario->codigo}}</td>
-						<td>{{$inventario->grupo->codigo}}</td>
-						<td>{{$inventario->independiente}}</td>
+						{{-- <td>{{$inventario->grupo->codigo}}</td> --}}
+						{{-- <td>{{$inventario->independiente}}</td> --}}
 
 						<td class="d-flex bd-highlight">
 							<a href="{{ route('inventarios.show', $inventario->id) }}" 
-							class="btn btn-warning ml-3"><i class="far fa-eye"></i><span class="d-none d-md-block d-lg-none">Ver</span>  </a>
+							class="btn btn-warning ml-3 d-none d-sm-block"><i class="far fa-eye"></i><span class="d-none d-md-block d-lg-none">Ver</span>  </a>
 
 							<a href="{{ route('inventarios.edit', $inventario->id) }}" 
 							class="btn btn-warning ml-3"><i class="fas fa-edit"></i><span class="d-none d-md-block d-lg-none">Editar</span> </a>

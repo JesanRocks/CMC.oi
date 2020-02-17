@@ -5,7 +5,7 @@ use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 //
-Route::redirect('/','blog');
+Route::redirect('/','inicio');
 
 Route::get('/sistema', function () {
     return view('sistema');
@@ -13,7 +13,7 @@ Route::get('/sistema', function () {
 
 Auth::routes();
 //Blog: Vistas para visitantes
-Route::get('/blog',				'Web\PageController@blog')->name('blog');
+Route::get('/inicio',				'Web\PageController@blog')->name('blog');
 Route::get('/publicaciones',	'Web\PageController@publicaciones')->name('publicaciones');
 
 Route::get('/buscar',			'Web\PageController@search')->name('search');
@@ -39,7 +39,10 @@ Route::resource('inventarios',		'Inventario\InventarioController');
 Route::get('inventarios/ver/pdf',		'Inventario\pdfController@pdf')->name('pdf');
 Route::get('inventarios/desargar/pdf',	'Inventario\pdfController@descarga')->name('descarga.pdf');
 
+Route::get('etiquetas',		'Inventario\pdfController@etiquetas')->name('etiquetas');
+#Route::get('inventarios/etiquetas/desargar',	'Inventario\pdfController@descarga')->name('descarga.etiquetas');
+
 //Route::get('inventarios/desargar/excel','Inventario\excelController@excel')->name('excel');
-Route::get('inventarios/desargar/excel', function (){
-	return Excel::download(new UsersExport, 'INVENTARIO DEL CONCEJO MUNICIPAL.xlsx');	
-});
+// Route::get('inventarios/desargar/excel', function (){
+// 	return Excel::download(new UsersExport, 'INVENTARIO DEL CONCEJO MUNICIPAL.xlsx');	
+// });

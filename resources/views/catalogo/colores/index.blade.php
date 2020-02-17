@@ -6,11 +6,14 @@
 		
 		<div class="card text-center m-2">
 			<div class="card-header h4">
-				Listado de Colores 
-				<div class="d-flex justify-content-end">
+				Consultar Colores
+				<div class="d-flex justify-content-between">
+					<a href="{{ route('sistema') }}" class="btn btn-primary ml-5">
+						<i class="fas fa-arrow-circle-left"></i> Volver 
+					</a>
 					<a href="{{ route('colores.create') }}" class="btn btn-primary ml-5 ">
-					<i class="fas fa-plus-square"></i> Crear 
-				</a>
+						<i class="fas fa-plus-square"></i> Crear 
+					</a>
 				</div>
 			</div>
 			<div class="card-body p-0">
@@ -26,8 +29,7 @@
 					@foreach($colores as $color)
 					<tr>
 						<td>{{$color->id}}</td>
-						<td>{{$color->nombre}}</td>
-
+						<td  class="text-justify">{{$color->nombre}}</td>
 						<td width="10px">
 							<a href="{{ route('colores.show', $color->id) }}" 
 							class="btn btn-warning"><i class="far fa-eye"></i><span class="d-none d-md-block d-lg-none">Ver</span></a>

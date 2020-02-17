@@ -12,7 +12,7 @@
         <style type="text/css" media="screen">        
             .transparent{ background: transparent; background-color: transparent; transition: all 1s ease;}
 
-            .nav-pills .nav-link.active, .show>.nav-pills .nav-link{ background: #000000 !important}
+            /*.nav-pills .nav-link.active, .show>.nav-pills .nav-link{ background: #000000 !important}*/
 
             .mall{ margin-top: 100px; margin-bottom: 100px;}
 
@@ -20,11 +20,11 @@
 
             .background{ background: url('image/bg.jpg'); background-repeat: no-repeat;               background-position: center bottom; background-attachment: fixed;                background-size: cover;}
             .stroke { text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;}
-   </style>
+        </style>
     </head>
     <body class="background" data-spy="scroll" data-target=".navbar" data-offset="500" >
         <div id="app" class="container-fluid">
-            <nav class="navbar fixed-top navbar-expand-lg navbar-dark  transparent">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark transparent">
                 <a class="navbar-brand" href="">
                     <img class="nav-img" src="{{ asset('image/logo_abmc325.png') }}" height="120px">
                 </a>
@@ -33,34 +33,33 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto nav-pills align-content-center text-white">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="#inicio">Inicio <span class="sr-only">(current)</span></a>
+                <ul class="navbar-nav mr-auto nav-pills align-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#inicio">&nbsp;&nbsp;Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Entradas">Entradas</a>
+                        <a class="nav-link text-white" href="#Publicaciones">&nbsp;&nbsp;Publicaciones</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Institución">Institución</a>
+                        <a class="nav-link text-white" href="#Institución">&nbsp;&nbsp;Institución</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Esctructura">Esctructura</a>
+                        <a class="nav-link text-white" href="#Esctructura">&nbsp;&nbsp;Esctructura</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Galeria">Galeria</a>
+                        <a class="nav-link text-white" href="#Galeria">&nbsp;&nbsp;Galeria</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#Contacto">Contacto</a>
+                        <a class="nav-link text-white" href="#Contacto">&nbsp;&nbsp;Contacto</a>
                     </li>                    
-
                 </ul>
                 @guest
                     <form class="form-inline my-2 my-lg-0">
-                      <a class="btn btn-outline-secondary" href="{{ route('login') }}">Iniciar sesión</a>
+                      <a class="btn btn-secondary" href="{{ route('login') }}">Iniciar sesión</a>
                     </form>
                 @else
                     <form class="form-inline my-2 my-lg-0">
-                      <a class="btn btn-outline-secondary" href="{{ route('sistema') }}">Sistema</a>
+                      <a class="btn btn-secondary" href="{{ route('sistema') }}">Panel administrativo</a>
                     </form>
                 @endguest
             </nav>{{-- Fin del nav--}}  
@@ -73,13 +72,13 @@
                         Trabajamos por el municipio Cedeño y su gente, para tener una gestión optima del pueblo para el pueblo...
                     </p>
                     <div class="mx-auto" style="width:250px;">                       
-                        <a href="#Contacto" class="btn btn-light btn-lg">Contactanos</a>
+                        <a href="#Contacto" class="btn btn-light btn-sm">Contactanos</a>
                         
-                        <a href="#Entradas" class="btn btn-light btn-lg">Entradas</a>
+                        <a href="#Publicaciones" class="btn btn-light btn-sm">Publicaciones</a>
                     </div>
                 </div>{{-- Fin del col--}}
                 
-                <div class="col-12 animated bounceInRight bg-light mall"  id="Entradas">
+                <div class="col-12 animated bounceInRight bg-light mall"  id="Publicaciones">
                     {{--<posts-component></posts-component>--}}    @yield('content') 
                 </div>
 
@@ -143,31 +142,26 @@
                 </div>
 
                 <div class="col-12 animated bounceInRight bg-primary mall"  id="Contacto">
-                    <div>
-                        <div class="header">
-                            <h1 class="display-5 text-center" style="margin-top: 90px;">Contacto</h1>
+                    <div class="row">
+                        <h1 class="display-5 text-center col-xs-12 col-sm-12" style="margin-top: 90px;">Contacto</h1>
+                        <div class="col-xs-12 col-md-6"><h5>LUNES A JUEVES.</h5>
+                            MAÑANA: 8:00 AM - 12:00 PM / TARDE:  2:00 PM - 4:00 PM <br><br>
+                            <h5>VIERNES.</h5>
+                            CORRIDO: 8:00 AM - 1:00 PM <br><br>
+                            <h5>DIAS DE DESCANSO SEMANAL.</h5> SABADOS Y DOMINGOS <br><br>   
+                            <h5>TELEFONOS:</h5> (0292) 744 28 16 / (0416) 933 52 96 <br><br>
+                            <h5>CORREO:</h5> <br><br>
                         </div>
-                        <div class="body p-5">
-                            <p class="lead"> 
-                                <center><strong>LUNES A JUEVES</strong><br><br>
-                                <strong>MAÑANA:</strong> 8:00 AM - 12:00 PM <br><br>
-                                <strong>TARDE:</strong>  2:00 PM - 4:00 PM <br><br>
-                                <strong>VIERNES</strong><br><br>
-                                <strong>CORRIDO:</strong> 8:00 AM - 1:00 PM <br><br>
-                                <strong>DIAS DE DESCANSO SEMANAL:</strong> SABADOS Y DOMINGOS</center>
 
-                            <strong>TELEFONO: </strong>(0292) 744 28 16 / (0416) 933 52 96<br>
-                            <strong>CORREO: </strong><br>
-                            <strong>UBICACION:</strong> CALLE CEDEÑO FRENTE A LA PLAZA BOLÍVAR, CAICARA MUNICIPIO CEDEÑO, ESTADO MONAGAS<br> 
-                            </p>
-
-                            <div class="d-flex m-5">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d708.9913663877929!2d-63.616980000000005!3d9.812797!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xebe7062b9a1aedbd!2sCamara%20Municipal!5e1!3m2!1ses-419!2sve!4v1569901330626!5m2!1ses-419!2sve" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-                            </div> 
-                            
-                            
+                        <div class="col-xs-12 col-md-6">
+                            <h5>UBICACIÓN.h5><br>
+                            CALLE CEDEÑO FRENTE A LA PLAZA BOLÍVAR CAICARA MUNICIPIO CEDEÑO ESTADO MONAGAS<br>
+                            <div class="embed-responsive embed-responsive-1by1">
+                                <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d708.9913663877929!2d-63.616980000000005!3d9.812797!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xebe7062b9a1aedbd!2sCamara%20Municipal!5e1!3m2!1ses-419!2sve!4v1569901330626!5m2!1ses-419!2sve" width="800" height="600" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                            </div>
                         </div>
-                    </div>
+                    </div><br><br>
+
                 </div>
 
 

@@ -5,7 +5,7 @@
 <div class="container">
 	<div class="col-md-12 mt-3">
 		<div class="shadow-lg p-3 mb-4 bg-info rounded" style="margin-top: 90px;">
-			<h1 class="text-left">Entradas recientes</h1>
+			<h1 class="text-left">Publicaciones recientes</h1>
 		</div>
 
 {{--     @if(isset($details))
@@ -51,7 +51,7 @@
 	</div>
 		
 	<div class="col-12 mb-3">
-      <a href="{{ route('publicaciones') }}" class="btn btn-info btn-block">Ver más articulos</a>  
+      <a href="{{ route('publicaciones') }}" class="btn btn-info btn-block">Ver más publicaciones</a>  
       {{-- {{ $posts->render() }} --}}
 	</div>
 </div>

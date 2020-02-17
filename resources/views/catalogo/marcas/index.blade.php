@@ -6,11 +6,14 @@
 		
 		<div class="card text-center m-2">
 			<div class="card-header h4">
-				Listado de Marcas 
-				<div class="d-flex justify-content-end">
+				Consultar Marcas
+				<div class="d-flex justify-content-between">
+					<a href="{{ route('sistema') }}" class="btn btn-primary ml-5">
+						<i class="fas fa-arrow-circle-left"></i> Volver 
+					</a>
 					<a href="{{ route('marcas.create') }}" class="btn btn-primary ml-5 ">
-					<i class="fas fa-plus-square"></i> Crear 
-				</a>
+						<i class="fas fa-plus-square"></i> Crear 
+					</a>
 				</div>
 			</div>
 			<div class="card-body p-0">
@@ -26,7 +29,7 @@
 					@foreach($marcas as $marca)
 					<tr>
 						<td>{{$marca->id}}</td>
-						<td>{{$marca->nombre}}</td>
+						<td  class="text-justify">{{$marca->nombre}}</td>
 
 						<td width="10px">
 							<a href="{{ route('marcas.show', $marca->id) }}" 

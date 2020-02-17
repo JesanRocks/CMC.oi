@@ -10,7 +10,7 @@
         <style type="text/css" media="screen">        
             .transparent{ background: transparent; background-color: transparent; transition: all 1s ease;}
 
-            .nav-pills .nav-link.active, .show>.nav-pills .nav-link{ background: #000000 !important}
+            /*.nav-pills .nav-link.active, .show>.nav-pills .nav-link{ background: #000000 !important}*/
 
             .mall{ margin-top: 100px; margin-bottom: 100px;}
 
@@ -23,9 +23,9 @@
     </head>
     <body class="background" data-spy="scroll" data-target=".navbar" data-offset="500" >
         <div id="app" class="container-fluid">
-            <nav class="navbar fixed-top navbar-expand-lg navbar-dark  transparent">
+            <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
                 <a class="navbar-brand" href="">
-                    <img class="nav-img" src="{{ asset('image/logo_abmc325.png') }}" height="120px">
+                    <img class="nav-img" src="{{ asset('image/logo_abmc325.png') }}" height="50px">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -34,16 +34,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto nav-pills align-content-center text-white">
                     <li class="nav-item ">
-                        <a class="nav-link" href="{{ route('blog') }}"><i class="fas fa-arrow-circle-left"></i> Inicio <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ route('blog') }}"><i class="fas fa-arrow-circle-left"></i>&nbsp;&nbsp;Inicio</a>
                     </li>                   
                 </ul>
                 @guest
                     <form class="form-inline my-2 my-lg-0">
-                      <a class="btn btn-outline-secondary" href="{{ route('login') }}">Iniciar sesión</a>
+                      <a class="btn btn-secondary" href="{{ route('login') }}">Iniciar sesión</a>
                     </form>
                 @else
                     <form class="form-inline my-2 my-lg-0">
-                      <a class="btn btn-outline-secondary" href="{{ route('sistema') }}">Sistema</a>
+                      <a class="btn btn-secondary" href="{{ route('sistema') }}">Panel administrativo</a>
                     </form>
                 @endguest
             </nav>{{-- Fin del nav--}}  
@@ -56,9 +56,9 @@
                         Trabajamos por el municipio Cedeño y su gente, para tener una gestión optima del pueblo para el pueblo...
                     </p>
                     <div class="mx-auto" style="width:250px;">                       
-                        <a href="#Contacto" class="btn btn-light btn-lg">Contactanos</a>
+                        <a href="#Contacto" class="btn btn-light btn-sm">Contactanos</a>
                         
-                        <a href="#Entradas" class="btn btn-light btn-lg">Entradas</a>
+                        <a href="#Entradas" class="btn btn-light btn-sm">Entradas</a>
                     </div>
                 </div>{{-- Fin del col--}}
                 
@@ -86,7 +86,7 @@
     </body>
 
     <script src="{{ asset('js/app.js') }}"></script>
-    <script> 
+    <!--script> 
         // Cambio de fondo en navbar, agregando clase "bg-dark", al bajar 56px
         $(window).scroll(function() {
             if ($(".navbar").offset().top > 56) {
@@ -103,5 +103,5 @@
                 $(".nav-img").removeClass("size");
             }
           });
-    </script>
+    </script-->
 </html>

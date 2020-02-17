@@ -10,7 +10,7 @@
         <style type="text/css" media="screen">        
             .transparent{ background: transparent; background-color: transparent; transition: all 1s ease;}
 
-            .nav-pills .nav-link.active, .show>.nav-pills .nav-link{ background: #000000 !important}
+            /*.nav-pills .nav-link.active, .show>.nav-pills .nav-link{ background: #000000 !important}*/
 
             .mall{ margin-top: 100px; margin-bottom: 100px;}
 
@@ -39,7 +39,7 @@
                         <a class="nav-link" href="{{ url('/blog') }}#inicio">Inicio <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/blog') }}#Entradas">Entradas</a>
+                        <a class="nav-link" href="{{ url('/blog') }}#Publicaciones">Publicaciones</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/blog') }}#Institución">Institución</a>
@@ -58,7 +58,7 @@
                     </form>
                 @else
                     <form class="form-inline my-2 my-lg-0">
-                      <a class="btn btn-outline-secondary" href="{{ route('sistema') }}">Sistema</a>
+                      <a class="btn btn-outline-secondary" href="{{ route('sistema') }}">Panel administrativo</a>
                     </form>
                 @endguest
             </nav>{{-- Fin del nav--}}  

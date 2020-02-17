@@ -98,7 +98,7 @@ class PostController extends Controller
             $this->authorize('pass',$post);
         }
         
-        return view('admin.posts.show', compact('post',));
+        return view('admin.posts.show', compact('post'));
     }
 
     /**

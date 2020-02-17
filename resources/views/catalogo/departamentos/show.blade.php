@@ -6,6 +6,11 @@
 		<div class="card m-2">
 			<div class="card-header text-center h5">
 				Descripción del departamento
+				<div class="d-flex justify-content-between">
+					<a href="{{ route('departamentos.index') }}" class="btn btn-primary ml-5">
+						<i class="fas fa-arrow-circle-left"></i> Volver 
+					</a>
+				</div>
 			</div>
 			<div class="card-body">
 				<p><strong>Nombre: </strong> {{$departamento->nombre }}</p>

@@ -49,6 +49,7 @@
 		 	font-size: 8px; 
 		 	color: black;
 		}
+		
 		.page-break {
 		    page-break-after: always;
 		}
@@ -67,17 +68,10 @@
 				<tr>
 					<th> N° </th>
 					<th>DESCRIPCIÓN</th>
-					<th>CANTD.</th>
-					<th><p class="box"><br><br> CÓDIGO</p></th>
-					<th><p class="box"><br><br> GRUPO</p></th>
-					<th><p class="box"><br> Nº INDENTIF.</p></th>
-					<th width="50px">SERIAL</th>
-					<th width="60px">MODELO</th>
-					<th width="50px">MARCA</th>
-					<th width="50px">COLOR</th>
-					<th>INCORPORACIÓN Bs.</th>				
-					<th>DESINCORPORACIÓN Bs.</th>
-					<th>OBSERVACION</th>
+					{{-- <th>CANTD.</th> --}}
+					<th> CÓDIGO</th>
+					{{-- <th><p class="box"><br><br> GRUPO</p></th> --}}					
+					{{-- <th><p class="box"><br> Nº INDENTIF.</p></th> --}}
 				</tr>
 			</thead>
 			<tbody>
@@ -87,24 +81,17 @@
 				<tr>
 					<td>{{$i++}}</td>
 					<td>{{ $inventario->articulo->dsc }}</td>
-					<td>{{ $inventario->cantidad }}</td>
-					<td><p class="box"><br> {{ $inventario->codigo }} </p> </td>
-					<td><p class="box"><br> {{ $inventario->grupo->codigo."-0000" }} </p></td>
-					<td><p class="box"><br> {{ $inventario->independiente }} </p></td>
-					<td width="50px">{{ $inventario->serial }} </td>
-					<td width="60px">{{ $inventario->modelo }} </td>
-					<td width="50px">{{ $inventario->marca->nombre }} </td>
-					<td width="50px">{{ $inventario->color->nombre }} </td>
-					<td>{{ $inventario->incorp }} Bs</td>
-					<td>{{ $inventario->desincorp }} Bs</td>
-					<td>{{ $inventario->observacion }} </td>
+					{{-- <td>{{ $inventario->cantidad }}</td> --}}
+					<td><br> {{ $inventario->codigo }} </td>
+{{-- 					<td><br> {{ $inventario->grupo->codigo."-0000" }}</td>
+					<td><br> {{ $inventario->independiente }}</td> --}}
 				</tr>
 				@endif
 				@endforeach
 			</tbody>
 		</table>
 	</div>
-	<div class="page-break">
+{{-- 	<div class="page-break">
 		<img src="image/logo_abmc325.png" class="logo">										
 		<div class="container">
 			<p class="membrete"><b>	CONCEJO MUNICIPAL DEL MUNICIPIO CEDEÑO<br>Caicara de Maturín – Estado  Monagas<br>RIF: G-20009010-3<br></b></p>												
@@ -201,6 +188,6 @@
 				@endforeach
 			</tbody>
 		</table>
-	</div>
+	</div> --}}
 </body>
 </html>
